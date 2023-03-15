@@ -1,52 +1,52 @@
 Rails.application.routes.draw do
   namespace :admin do
-    get 'orders/show'
+    # order
+    resources :orders, only: [:show, :update]
+
+    # customer
+    resources :customers, only: [:index, :show, :edit, :update]
+
+    # genre
+    resources :genres, only: [:index, :create, :edit, :update]
+
+    # item
+    resources :items, except: [:destroy]
+
+    # order_detail
+    resources :order_details, only: [:update]
+
+    # home
+    root to: 'homes#top'
   end
-  namespace :admin do
-    get 'customers/index'
-    get 'customers/edit'
-    get 'customers/show'
-  end
-  namespace :admin do
-    get 'genres/index'
-    get 'genres/edit'
-  end
-  namespace :admin do
-    get 'items/index'
-    get 'items/show'
-    get 'items/edit'
-    get 'items/new'
-  end
-  namespace :public do
-    get 'destinations/index'
-    get 'destinations/edit'
-  end
-  namespace :public do
-    get 'orders/new'
-    get 'orders/confirm'
+
+  scope module: :public do
+    # destination
+    resources :destinations, except: [:new, :show]
+
+    # order
+    resources :orders, only: [:index, :new, :create, :show]
+    post 'orders/confirm'
     get 'orders/complete'
-    get 'orders/index'
-    get 'orders/show'
-  end
-  namespace :public do
-    get 'cart_items/index'
-  end
-  namespace :public do
-    get 'customers/show'
-    get 'customers/edit'
+
+    # cart_item
+    resources :cart_items, only: [:index, :update, :create, :destroy]
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
+
+    # customer
+    get 'customers/mypage' => 'customers#show'
+    get 'customers/information/edit' => 'customers#edit'
     get 'customers/soft_delete'
+    patch 'customers/information' => 'customers#update'
+    patch 'customers/drop' => 'customers#drop'
+
+    # item
+    resources :items, only: [:index, :show]
+
+    # home
+    root to: 'homes#top'
+    get 'about' => 'homes#about'
   end
-  namespace :public do
-    get 'items/index'
-    get 'items/show'
-  end
-  namespace :admin do
-    get 'homes/top'
-  end
-  namespace :public do
-    get 'homes/top'
-    get 'homes/about'
-  end
+
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
