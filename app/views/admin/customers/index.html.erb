@@ -1,2 +1,52 @@
-<h1>Admin::Customers#index</h1>
-<p>Find me in app/views/admin/customers/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="offset-md-1" style="margin-top:20px; margin-bottom:20px;">
+        <h4>会員情報編集</h4>
+      </div>
+      <table class="table table-borderless">
+        <thead>
+          <%= form_with model: @customer do |f| %>
+            <tr>
+              <td>氏名</td>
+              <td class="form-group">
+                <%= f.text_field :last_name, class: "mr-5" %>
+                <%= f.text_field :first_name %>
+              </td>
+            </tr>
+            <tr>
+              <td>フリガナ</td>
+              <td class="form-group">
+                <%= f.text_field :kana_last_name, class: "mr-5" %>
+                <%= f.text_field :kana_first_name %>
+              </td>
+            </tr>
+            <tr>
+              <td>郵便番号</td>
+              <td class="form-group"><%= f.text_field :post_code %></td>
+            </tr>
+            <tr>
+              <td>住所</td>
+              <td class="form-group"><%= f.text_field :post_address, size: 55 %></td>
+            </tr>
+            <tr>
+              <td>電話番号</td>
+              <td class="form-group"><%= f.text_field :phone_number %></td>
+            </tr>
+            <tr>
+              <td>メールアドレス</td>
+              <td class="form-group"><%= f.text_field :email %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="form-group">
+                <%= f.submit "編集内容を保存", class: "btn btn-success mr-5" %>
+                <%= link_to "退会する", customers_soft_delete_path, class: "btn btn-danger ml-5" %>
+              </td>
+            </tr>
+          <% end %>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>

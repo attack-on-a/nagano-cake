@@ -3,6 +3,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def edit
+    @customer = Customer.find8params[:id]
   end
 
   def update
