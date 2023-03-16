@@ -29,13 +29,13 @@
                 <tr>
                   <th scope="row">ジャンル</th>
                   <td>
-                    <!--%= @item.genre_id.name %>-->c
+                    <!--%= @item.genre.name %>-->c
                   </td>
                 </tr>
                 <tr>
                   <th scope="row text-nowrap">税込価格<br>(税抜価格)</th>
                   <td>
-                    <!--%= @item.price %>-->d
+                    <!--%= @item.with_tax_price %>(%= @item.price %>)円-->
                   </td>
                 </tr>
                 <tr>
