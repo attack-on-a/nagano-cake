@@ -1,49 +1,52 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
-      <div class="offset-md-3" style="margin-top:20px; margin-bottom:30px;">
-        <h4>マイページ</h4>
+    <div class="col-md-9">
+      <div class="offset-md-1" style="margin-top:20px; margin-bottom:20px;">
+        <h4 class="font-weight-bold">会員情報編集</h4>
       </div>
-      <div class="d-flex" style="margin-bottom:20px;">
-        <h4 class="font-weight-bold">登録情報</h4>
-        <%= link_to "編集する", customers_information_edit_path, class: "btn btn-success ml-5 pr-4 pl-4" %>
-      </div>
-      <table class="table">
-        <tbody>
-          <tr>
-            <td class="table-active border border-dark">氏名</td>
-            <td class="border border-dark"><%= @customer.last_name+@customer.first_name %></td>
-          </tr>
-          <tr>
-            <td class="table-active border border-dark">カナ</td>
-            <td class="border border-dark"><%= @customer.kana_last_name+@customer.kana_first_name %></td>
-          </tr>
-          <tr>
-            <td class="table-active border border-dark">郵便番号</td>
-            <td class="border border-dark"><%= @customer.post_code %></td>
-          </tr>
-          <tr>
-            <td class="table-active border border-dark">住所</td>
-            <td class="border border-dark"><%= @customer.post_address %></td>
-          </tr>
-          <tr>
-            <td class="table-active border border-dark">電話番号</td>
-            <td class="border border-dark"><%= @customer.phone_number %></td>
-          </tr>
-          <tr>
-            <td class="table-active border border-dark">メールアドレス</td>
-            <td class="border border-dark"><%= @customer.email %></td>
-          </tr>
-        </tbody>
+      <table class="table table-borderless">
+        <thead>
+          <%= form_with model: @customer do |f| %>
+            <tr>
+              <td>氏名</td>
+              <td class="form-group">
+                <%= f.text_field :last_name, class: "mr-5" %>
+                <%= f.text_field :first_name %>
+              </td>
+            </tr>
+            <tr>
+              <td>フリガナ</td>
+              <td class="form-group">
+                <%= f.text_field :kana_last_name, class: "mr-5" %>
+                <%= f.text_field :kana_first_name %>
+              </td>
+            </tr>
+            <tr>
+              <td>郵便番号</td>
+              <td class="form-group"><%= f.text_field :post_code %></td>
+            </tr>
+            <tr>
+              <td>住所</td>
+              <td class="form-group"><%= f.text_field :post_address, size: 55 %></td>
+            </tr>
+            <tr>
+              <td>電話番号</td>
+              <td class="form-group"><%= f.text_field :phone_number %></td>
+            </tr>
+            <tr>
+              <td>メールアドレス</td>
+              <td class="form-group"><%= f.text_field :email %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="form-group">
+                <%= f.submit "編集内容を保存", class: "btn btn-success mr-5 pr-5 pl-5" %>
+                <%= link_to "退会する", customers_soft_delete_path, class: "btn btn-danger ml-5 pr-4 pl-4" %>
+              </td>
+            </tr>
+          <% end %>
+        </thead>
       </table>
-      <div class="d-flex" style="margin-top:40px;">
-        <h4 class="font-weight-bold mr-4">配送先</h4>
-        <%= link_to "一覧を見る", destinations_path, class: "btn btn-primary ml-5 pr-4 pl-4" %>
-      </div>
-      <div class="d-flex" style="margin-top:20px;">
-        <h4 class="font-weight-bold">注文履歴</h4>
-        <%= link_to "一覧を見る", orders_path, class: "btn btn-primary ml-5 pr-4 pl-4" %>
-      </div>
     </div>
   </div>
 </div>
