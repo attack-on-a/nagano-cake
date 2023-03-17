@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Admin::SessionsController < Devise::SessionsController
+  before_action :reject_user, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -18,7 +19,15 @@ class Admin::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # protected
+  protected
+
+  def reject_user
+    @customer = Customer.find_by(email: params[:customer][:email].dawncase)
+    if (@customer.valid_password?(params[:customer][:passeord]) && (@customer.active_for_authentication? == false))
+      flash[:error] = "退会済みです"
+      redirect_to new_customer_registration_path
+    end
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
