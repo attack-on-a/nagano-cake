@@ -6,7 +6,7 @@
       </div>
       <table class="table table-borderless">
         <thead>
-          <%= form_with model: @customer do |f| %>
+          <%= form_with model: @customer, url: customers_information_path do |f| %>
             <tr>
               <td>氏名</td>
               <td class="form-group">
