@@ -24,7 +24,6 @@ class Public::CartItemsController < ApplicationController
 
   def create
     @cart_item = CartItem.new(cart_item_params)
-    current_customer.cart_items.find_by(id: item_id)
     @cart_item.save
     redirect_to cart_items_path
   end
