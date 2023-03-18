@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
     # cart_item
     resources :cart_items, only: [:index, :update, :create, :destroy]
-    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
+    delete 'cart_items' => 'cart_items#destroy_all'
 
     # customer
     get 'customers/mypage' => 'customers#show'
