@@ -1,7 +1,6 @@
 class Public::CartItemsController < ApplicationController
   def index
-    @customer = current_customer.id
-    @cart_items = CartItem.page(params[:page])
+    @cart_items = current_customer.cart_items.page(params[:page])
     @total = 0
   end
 
@@ -24,6 +23,16 @@ class Public::CartItemsController < ApplicationController
 
   def create
     @cart_item = CartItem.new(cart_item_params)
+    # 同じitemがあるか判別
+    @cart_items = current_customer.cart_items.all
+    @cart_items.each do |cart_item|
+      if cart_item.item_id == @cart_item.item_id
+        amount = cart_item.amount + @cart_item.amount
+        cart_item.update(:amount => amount)
+        @cart_item.delete
+      end
+    end
+
     @cart_item.save
     redirect_to cart_items_path
   end
