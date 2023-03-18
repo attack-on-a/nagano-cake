@@ -1,2 +1,49 @@
 <h1>Public::Destinations#index</h1>
 <p>Find me in app/views/public/destinations/index.html.erb</p>
+
+
+<h2> 配送先登録/一覧</h2>
+
+  <%= form_with model: @destination, url: destinations_path, method: :post do |f| %>
+<table>
+  <tr>
+    <td>郵便番号(ハイフンなし)</td>
+    <td><%= f.text_field :post_code, placeholder: "ooooooo" %> </td>
+  </tr>
+  <tr>
+    <td>住所</td>
+    <td> <%= f.text_field :address, size: "50*50", placeholder: "東京都渋谷区代々木神園0-0" %> </td>
+  </tr>
+  <tr>
+    <td>宛名</td>
+    <td> <%= f.text_field :name, placeholder: "令和道子" %> </td>
+    <td> <%= f.submit '新規登録', calss: "btn btn-success" %> </td>
+  </tr>
+</table>
+<% end %>
+
+<table>
+  <thead>
+     <tr>
+      <th>郵便番号</th>
+      <tr>住所</tr>
+      <tr>宛名</tr>
+      <tr></tr>
+     </tr>
+  </thead>
+  <tbody>
+     <% @destinations.each do |destinations| %>
+         <tr>
+          <td><%= destinations.post_code %></td>
+          <td><%= destinations.address %></td>
+          <td><%= destinations.name %></td>
+          <td>
+          <%= link_to "編集する", edit_destination_path(destinations.id), class: "btn btn-success" %>
+          <%= link_to "削除する", destination_path(destinations.id), class: "btn btn-danger", method: :delete %>
+          </td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
