@@ -52,14 +52,14 @@
       <%= link_to "買い物を続ける", items_path, class:"btn btn-primary" %>
     </div>
     <div>
-      <table class="table table-borderless">
+      <table class="table table-bordered">
         <tr>
           <th scope="row">合計金額</th>
           <td>
             <% @cart_items.each do |cart_item| %>
               <% @total += cart_item.subtotal %>
             <% end %>
-            <%= @total %>
+            <%= @total.to_s(:delimited) %>
           </td>
         </tr>
       </table>
