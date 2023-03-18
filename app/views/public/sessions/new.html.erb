@@ -1,10 +1,9 @@
-
 <h4>ログイン</h4>
 <h5>会員の方はこちらからログイン</h5>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :"メールアドレス" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "sample@example.com"%>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
@@ -12,12 +11,12 @@
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
-
+  
 
   <div class="actions">
-    <%=f.submit "ログイン",class:"btn btn-primary"%>
+    <%= f.submit "ログイン" %>
   </div>
 <% end %>
 
 <h5>会員登録がお済みでない方</h5>
-<p><%= link_to "こちら",new_customer_registration_path %>から新規登録を行ってください。</p>
+<p><%= render "public/shared/links" %>から新規登録を行ってください</p>
