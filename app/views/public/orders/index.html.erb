@@ -1,41 +1,46 @@
-<h1>Public::Orders#index</h1>
-<p>Find me in app/views/public/orders/index.html.erb</p>
+<div class="offset-2">
+  <div class="row mt-4">
+    <mark class="h4 table-secondary">注文履歴一覧</mark>
+  </div>
 
-<h2>注文履歴一覧</h2>
+  <table class="table table-bordered col-10">
+   <thead>
+    <tr>
+       <th class="table-secondary">注文日</th>
+       <th class="table-secondary">配送先</th>
+       <th class="table-secondary">注文商品</th>
+       <th class="table-secondary">支払金額</th>
+       <th class="table-secondary">ステータス</th>
+       <th class="table-secondary">注文詳細</th>
+    </tr>
+   </thead>
 
-<table>
-  <tr>
-    <td>注文日</td>
-    <td>配送先</td>
-    <td>注文商品</td>
-    <td>支払金額</td>
-    <td>ステータス</td>
-    <td>注文詳細</td>
-  </tr>
-
+   <tbody>
    <% @orders.each do |order| %>
-
-  <tr>
-    <td>
-     <%= order.updated_at.strftime('%Y/%m/%d') %>
-    </td>
-    <td>
-     〒<%= order.post_code %><br>
-     <%= order.address %><br>
-     <%= order.name %><br>
-    </td>
-    <td> <% order.order_detail.each do |item| %>
-     <%= item.item_id.name %> <br> <% end %>
-    </td>
-     <td>
-     <%= order.total %>円
-    </td>
-    <td>
-      <%= order.status_i18n %>
-    </td>
-    <td>
-     <%= link_to "表示する",  order_path(order.id), class: "btn btn-primary"  %>
-    </td>
-  </tr>
-   <% end %>
-</table>
+    <tr>
+       <td>
+        <%= order.updated_at.strftime('%Y/%m/%d') %>
+       </td>
+       <td>
+        〒<%= order.post_code %><br>
+        <%= order.address %><br>
+        <%= order.name %><br>
+       </td>
+       <td>
+         <% order.order_detail.each do |item| %>
+         <%= item.item_id.name %> <br> <% end %>
+       </td>
+       <td>
+         <%= order.total %>円
+       </td>
+       <td>
+         <%= order.status_i18n %>
+       </td>
+       <td>
+         <%= link_to "表示する",  order_path(order.id), class: "btn btn-primary"  %>
+       </td>
+    </tr>
+    <% end %>
+   </tbody>
+ </table>
+</div>

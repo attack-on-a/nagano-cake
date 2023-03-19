@@ -1,49 +1,52 @@
-<h1>Public::Destinations#index</h1>
-<p>Find me in app/views/public/destinations/index.html.erb</p>
+<div class="offset-2">
 
+    <div class="row mt-4">
+       <mark class="h4 table-secondary">配送先登録/一覧</mark>
+    </div>
 
-<h2> 配送先登録/一覧</h2>
+  <div class="row">
 
-  <%= form_with model: @destination, url: destinations_path, method: :post do |f| %>
-<table>
-  <tr>
-    <td>郵便番号(ハイフンなし)</td>
-    <td><%= f.text_field :post_code, placeholder: "ooooooo" %> </td>
-  </tr>
-  <tr>
-    <td>住所</td>
-    <td> <%= f.text_field :address, size: "50*50", placeholder: "東京都渋谷区代々木神園0-0" %> </td>
-  </tr>
-  <tr>
-    <td>宛名</td>
-    <td> <%= f.text_field :name, placeholder: "令和道子" %> </td>
-    <td> <%= f.submit '新規登録', calss: "btn btn-success" %> </td>
-  </tr>
-</table>
-<% end %>
+    <%= form_with model: @destination, url: destinations_path, method: :post do |f| %>
+    <table class="table table-borderless">
+      <tr>
+        <td>郵便番号(ハイフンなし)</td>
+        <td><%= f.text_field :post_code, placeholder: "ooooooo" %> </td>
+      </tr>
+      <tr>
+        <td>住所</td>
+        <td> <%= f.text_field :address, size: "50*50", placeholder: "東京都渋谷区代々木神園0-0" %> </td>
+      </tr>
+      <tr>
+        <td>宛名</td>
+        <td> <%= f.text_field :name, placeholder: "令和道子" %> </td>
+        <td> <%= f.submit '新規登録', calss: "btn btn-success" %> </td>
+      </tr>
+     </table>
+     <% end %>
 
-<table>
-  <thead>
-     <tr>
-      <th>郵便番号</th>
-      <th>住所</th>
-      <th>宛名</th>
-      <tr></tr>
-     </tr>
-  </thead>
-  <tbody>
-     <% @destinations.each do |destinations| %>
+    <table class="table table-bordered col-11">
+     <thead>
+      <tr>
+        <th>郵便番号</th>
+        <th>住所</th>
+        <th>宛名</th>
+        <tr></tr>
+      </tr>
+     </thead>
+     <tbody>
+     <% @destinations.each do |destination| %>
          <tr>
-          <td><%= destinations.post_code %></td>
-          <td><%= destinations.address %></td>
-          <td><%= destinations.name %></td>
+          <td><%= destination.post_code %></td>
+          <td><%= destination.address %></td>
+          <td><%= destination.name %></td>
           <td>
-          <%= link_to "編集する", edit_destination_path(destinations.id), class: "btn btn-success" %>
-          <%= link_to "削除する", destination_path(destinations.id), class: "btn btn-danger", method: :delete %>
+          <%= link_to "編集する", edit_destination_path(destination.id), class: "btn btn-success" %>
+          <%= link_to "削除する", destination_path(destination.id), class: "btn btn-danger", method: :delete %>
           </td>
         </tr>
-    <% end %>
-  </tbody>
-</table>
+     <% end %>
+     </tbody>
+    </table>
+</div>
 
 
