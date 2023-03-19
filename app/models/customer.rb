@@ -19,4 +19,6 @@ class Customer < ApplicationRecord
     super && (self.is_deleted == false)
   end
 
+  has_many:cart_items
+
 end
