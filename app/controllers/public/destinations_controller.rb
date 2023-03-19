@@ -1,8 +1,8 @@
 class Public::DestinationsController < ApplicationController
   def index
-    
+
     @destination = Destination.new
-    @destinations = Destination.where(customer_id: current_customer.id)
+    @destinations = Destination.where(customer_id: current_customer)
   end
 
   def edit
@@ -11,7 +11,7 @@ class Public::DestinationsController < ApplicationController
 
   def create
     @destination = Destination.new(destination_params)
-    @destination.customer_id = current_customer.id
+    @destination.customer_id = current_customer
     if @destination.save
       redirect_to  destination_path
     else
