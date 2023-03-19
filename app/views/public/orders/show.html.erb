@@ -14,7 +14,7 @@
            <%= @order.address %>
            <%= @order.name %>
       </td>
-           
+
     </tr>
     <tr>
       <td>支払方法</td>
@@ -32,15 +32,15 @@
   <tbody>
     <tr>
      <td>商品合計</td>
-     <td> <%= @order.total %></td>
+     <td> <%= @order.total.to_s %></td>
     </tr>
     <tr>
       <td>配送料</td>
-      <td><%= @order.postage %></td>
+      <td><%= @order.postage.to_s %></td>
     </tr>
     <tr>
       <td>ご請求額</td>
-      <td><%= @order.postage + @order.total %></td>
+      <td><%= @order.postage + @order.total.to_s %></td>
     </tr>
   </tbody>
 </table>
@@ -54,11 +54,11 @@
       <td>個数</td>
       <td>小計</td>
     </tr>
-    
+
      <% @order_details.each do |order_detail| %>
     <tr>
       <td> oeder_detail.name</td>
-      <td> order_detail.price</td>
+      <td> order_detail.price.to_s</td>
       <td> order_item.amount</td>
       <td> </td>
 　   </tr>
