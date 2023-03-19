@@ -40,8 +40,28 @@
     </tr>
     <tr>
       <td>ご請求額</td>
-      <td></td>
+      <td><%= @order.postage + @order.total %></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>注文内容</h2>
+<table>
+   <tbody>
+    <tr>
+      <td>商品</td>
+      <td>単価(税込み)</td>
+      <td>個数</td>
+      <td>小計</td>
     </tr>
     
-  </tbody>
+     <% @order_details.each do |order_detail| %>
+    <tr>
+      <td> oeder_detail.name</td>
+      <td> order_detail.price</td>
+      <td> order_item.amount</td>
+      <td> </td>
+　   </tr>
+　   <%= end >
+　 </tbody>
 </table>
