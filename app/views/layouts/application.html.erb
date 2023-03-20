@@ -12,9 +12,15 @@
 
   <body>
     <header class="d-flex flex-column">
-      <div class="container">
-        <nav class="navbar navbar-light" style="margin-bottom:20px;">
-          <a class="navbar-brand" href="/"><%= image_tag("logo.png") %></a>
+      <div class="container-fluid">
+        <div class="row">
+        </div>
+        <nav class="navbar navbar-light justify-content-between" style="margin-bottom:20px;">
+          <% if admin_signed_in? %>
+            <a class="navbar-brand" href="/admin"><%= image_tag("logo.png") %></a>
+          <% else %>
+            <a class="navbar-brand" href="/"><%= image_tag("logo.png") %></a>
+          <% end %>
           <div>
             <ul class="navbar-nav list-group list-group-horizontal">
               <% if admin_signed_in? %>
@@ -68,7 +74,7 @@
               <% end %>
             </ul>
             <div class="form-group text-right mt-3">
-            	<input type="text" cplaceholder="Search">
+            	<input type="text" placeholder="Search">
             	 <span class="input-group-btn">
             		<button type="button" class="btn btn-default">
             		  <i class="fas fa-search"></i>

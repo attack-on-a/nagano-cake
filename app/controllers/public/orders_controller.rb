@@ -57,9 +57,13 @@ class Public::OrdersController < ApplicationController
    end
 
   def index
+    @orders = Order.where(customer_id: current_customer)
+
   end
 
   def show
+    @order = order.find(params[:id])
+    @order_details = @order.order_datail
   end
 
   private
