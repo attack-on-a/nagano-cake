@@ -1,3 +1,7 @@
+<div class="text-success">
+  <%= flash[:notice] %>
+</div>
+
 <div class="container">
   <div class="row mt-5">
     <div class="col-md-3">
@@ -18,7 +22,7 @@
     </div>
     <div class="col-md-9">
 
-      <div class="card bg-dark" style="width: 650px; height: auto;">
+      <div class="card bg-dark" style="width: 652px; height: auto;">
         <img src="/assets/kari.jpeg" class="card-img" style="width: 650px; height: 300px;">
         <div class="card-img-overlay d-flex">
           <div class="m-auto">
@@ -40,13 +44,17 @@
         <% @items.each do |item|  %>
           <thead class="font-weight-bold">
             <tr>
-              <td>画像</td>
+              <td>
+                <%= link_to item_path(item.id) do %>
+                  <%= image_tag item.get_item_image, size: '150x150' %>
+                <% end %>
+              </td>
             </tr>
             <tr>
               <td><%= item.name %></td>
             </tr>
             <tr>
-              <td><%= item.price %></td>
+              <td>¥<%= item.price %></td>
             </tr>
           </thead>
         <% end %>
