@@ -1,7 +1,8 @@
 class Public::HomesController < ApplicationController
   def top
     @genres = Genre.all
-    @items = Item.order('id DESC').limit(4)
+    @items = Item.sales
+    @active_items = @items.order('id DESC').limit(4)
   end
 
   def about
