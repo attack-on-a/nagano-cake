@@ -12,7 +12,7 @@ class Public::DestinationsController < ApplicationController
     @destination = Destination.new(destination_params)
     @destination.customer = current_customer
     if @destination.save
-      redirect_to  destination_path
+      redirect_to  destinations_path
     else
       render :index
     end
@@ -21,10 +21,13 @@ class Public::DestinationsController < ApplicationController
   def update
     @destination = Destination.find(params[:id])
     @destination.update(destination_params)
-    redirect_to destination_path
+    redirect_to destinations_path
   end
 
   def destroy
+    @address = Destination.find(params[:id])
+    @address.destroy
+    redirect_to destinations_path
   end
 
  private

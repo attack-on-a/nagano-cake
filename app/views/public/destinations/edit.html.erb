@@ -6,7 +6,7 @@
 
 
   <div class="row">
-     <%= form_with model: @destination, url: destinations_path, method: :patch do |f| %>
+     <%= form_with model: @destination, url: destination_path(@destination), method: :patch do |f| %>
     <table>
       <tr>
         <td>郵便番号(ハイフンなし)</td>
