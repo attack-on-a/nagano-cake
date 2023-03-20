@@ -1,7 +1,7 @@
 
     <h2>注文情報確認</h2>
-      
-      <table> 
+
+      <table>
         <thead>
           <tr>
             <th>商品名</th>
@@ -11,13 +11,13 @@
           </tr>
         </thead>
         <tbody>
-      　　<% @order_item.each do |order_item| %>
+      　　<% @cart_items.each do |order_item| %>
           <tr>
             <td><%= image_tag order_item.item.get_item_image, size:'50x50' %></td>
-            <td><%= order_item.name %></td>
-            <td><%= (order_item.price * 1.1).floot %></td>
+            <td><%= order_item.item.name %></td>
+            <td><%= (order_item.item.price * 1.1).floor %></td>
             <td><%= order_item.amount %></td>
-            <td><%= (order_item.item.price * 1.1).floor * ordet_item.amount %></td>
+            <td><%= (order_item.item.price * 1.1).floor * order_item.amount %></td>
           </tr>
           <% end %>
         </tbody>
