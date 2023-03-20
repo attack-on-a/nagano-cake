@@ -4,7 +4,10 @@ class Item < ApplicationRecord
   has_many :order_details
 
   validates :price, numericality: { only_integer: true }
-
+  with_options presence: true do
+    validates:genre_id
+    # :imege, :name, :explanatory, :price, :genre_id, :is_active
+  end
 
   has_one_attached :image
 
