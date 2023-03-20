@@ -21,8 +21,8 @@
           </div>
           <div class="col-xs-10">
             <%= f.radio_button :select_address,2 %>
-            <%= f.label :select_address_2,"登録先の住所"%>
-            <%= f.select :address_id,options_from_collection_for_select(Destinations.all,:id,:address_display)%>
+            <%= f.label :select_address_2,"登録済住所から選択"%>
+            <%= f.select :address_id,options_from_collection_for_select(current_customer.destinations,:id,:address_display)%>
           </div>
           <div class="col-xs-10">
             <%= f.radio_button :select_address,3%>
