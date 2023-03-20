@@ -30,13 +30,13 @@ Rails.application.routes.draw do
 
     # cart_item
     resources :cart_items, only: [:index, :update, :create, :destroy]
-    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
+    delete 'cart_items' => 'cart_items#destroy_all'
 
     # customer
     get 'customers/mypage' => 'customers#show'
     get 'customers/information/edit' => 'customers#edit'
-    get 'customers/soft_delete'
     patch 'customers/information' => 'customers#update'
+    get 'customers/soft_delete' => 'customers#soft_delete'
     patch 'customers/drop' => 'customers#drop'
 
     # item
