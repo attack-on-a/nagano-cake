@@ -4,6 +4,6 @@ class Destination < ApplicationRecord
   validates :name, :address, :post_code, presence: true
 
   def address_display
-  '〒' + postal_code + ' ' + address + ' ' + name
+  '〒' + post_code + ' ' + address + ' ' + name
   end
 end
