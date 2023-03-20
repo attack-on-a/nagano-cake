@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     # order
-    resources :orders, only: [:show, :update]
+    resources :orders, only: [:show, :update, :index]
 
     # customer
     resources :customers, only: [:index, :show, :edit, :update]
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :items, except: [:destroy]
 
     # order_detail
-    resources :order_details, only: [:update]
+    resources :order_details, only: [:update, :index]
 
     # home
     root to: 'homes#top'
