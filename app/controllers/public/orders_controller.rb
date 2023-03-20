@@ -13,10 +13,11 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders = Order.where(customer_id: current_customer)
-    @order_details = @order.order_datail
+
   end
 
   def show
     @order = order.find(params[:id])
+    @order_details = @order.order_datail
   end
 end
