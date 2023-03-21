@@ -24,7 +24,7 @@ class Item < ApplicationRecord
     (price * 1.1).floor
   end
 
-  scope :sales, -> { where(is_active: true) }
+  scope :saled, -> { where(is_active: true) }
 
 
 end
