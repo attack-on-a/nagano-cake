@@ -5,6 +5,13 @@ class Item < ApplicationRecord
 
   validates :price, numericality: { only_integer: true }
 
+  with_options presence: true do
+    validates:genre_id
+    validates:name
+    validates:explanatory
+    validates:price
+    validates:genre_id
+  end
 
   has_one_attached :image
 
@@ -15,5 +22,8 @@ class Item < ApplicationRecord
   def with_tax_price
     (price * 1.1).floor
   end
+
+  scope :saled, -> { where(is_active: true) }
+
 
 end
