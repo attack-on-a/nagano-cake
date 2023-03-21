@@ -8,16 +8,16 @@ class Public::OrdersController < ApplicationController
     @order=Order.new(order_params)
 
       if params[:order][:select_address]=="1"
-        @order.name = current_customer.last_name + current_customer.first_name
-        @order.post_code = current_customer.post_code
-        @order.address = current_customer.post_address
+        @order_name = current_customer.last_name + current_customer.first_name
+        @order_post_code = current_customer.post_code
+        @order_address = current_customer.post_address
 
       elsif params[:order][:select_address]=="2"
-
-      #  address = @order.find_by(address_id:destination)current_customer.destinations
-        @order_name = address_id.name
-        @order_post_code = address_id.post_code
-        @order_address = address_id.address
+        destination_id = params[:destination_id]
+        destination_go = Destination.find_by(params[id:destination_id])
+        @order.name = destination_go.name
+        @order.post_code = destination_go.post_code
+        @order.address = destination_go.address
 
       elsif params[:order][:select_address]=="3"
         @order.name = params[:order][:name]
@@ -70,7 +70,7 @@ class Public::OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:payment,:post_code,:name,:address,:postage,:total,:order_status,:customer_id)
+    params.require(:order).permit(:payment, :post_code, :name, :address, :postage, :total, :order_status, :customer_id)
   end
 
 
