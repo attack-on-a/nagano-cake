@@ -13,15 +13,17 @@ class Public::OrdersController < ApplicationController
         @order.address = current_customer.post_address
 
       elsif params[:order][:select_address]=="2"
-        address = Destination.find(params[:order][:destinations_id])
-        @order.name = address.name
-        @order.post_code = address.post_code
-        @order.address = address.address
+
+      #  address = @order.find_by(address_id:destination)current_customer.destinations
+        @order_name = address_id.name
+        @order_post_code = address_id.post_code
+        @order_address = address_id.address
 
       elsif params[:order][:select_address]=="3"
         @order.name = params[:order][:name]
         @order.post_code = params[:order][:post_code]
         @order.address = params[:order][:address]
+        @order.save
       else
         redirect_to request.referer
       end
@@ -32,8 +34,6 @@ class Public::OrdersController < ApplicationController
 
 
 
-  def complete
-  end
 
   def create
     @order=Order.new(order_params)
@@ -49,9 +49,14 @@ class Public::OrdersController < ApplicationController
 
       @order_item.save
     end
-    current_customer.cart_items.destroy_all
-    redirect_to orders_complete_path
+
+    redirect_to action: :complete
+   # current_customer.cart_items.destroy_all
    end
+
+  def complete
+  end
+
 
   def index
     @orders = Order.where(customer_id: current_customer)
@@ -60,7 +65,7 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @order_items = @order.order_items
+    @pay_details = @order.order_details
   end
 
   private

@@ -24,9 +24,10 @@ Rails.application.routes.draw do
     resources :destinations, except: [:new, :show]
 
     # order
+    get 'orders/complete' => 'orders#complete'
     resources :orders, only: [:index, :new, :create, :show]
     post 'orders/confirm'
-    get 'orders/complete'
+
 
     # cart_item
     resources :cart_items, only: [:index, :update, :create, :destroy]

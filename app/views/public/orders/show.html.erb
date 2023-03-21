@@ -28,7 +28,7 @@
            </tr>
            <tr>
               <td class="table-secondary">ステータス</td>
-              <td><%= @order.status_i18n %></td>
+              <td><%= @order.order_status_i18n %></td>
            </tr>
         </tbody>
       </table>
@@ -49,7 +49,7 @@
           </tr>
           <tr>
             <td class="table-secondary">ご請求額</td>
-            <td><%= @order.postage + @order.total.to_s %></td>
+            <td><%= @order.postage + @order.total %></td>
           </tr>
         </tbody>
       </table>
@@ -68,14 +68,14 @@
        </tr>
       </thead>
       <tbody>
-      <% @order_details.each do |order_detail| %>
+      <% @pay_details.each do |order_detail| %>
        <tr>
-         <td> oeder_detail.name</td>
-         <td> order_detail.price.to_s</td>
-         <td> order_item.amount</td>
-         <td> </td>
+         <td><%= order_detail.item.name%></td>
+         <td><%= order_detail.total_price%></td>
+         <td><%= order_detail.amount%></td>
+         <td><%= order_detail.total_price * order_detail.amount %> </td>
        </tr>
-      <%= end %>
+      <% end %>
       </tbody>
     </table>
   </div>
