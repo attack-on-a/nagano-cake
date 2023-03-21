@@ -13,22 +13,18 @@ class Public::OrdersController < ApplicationController
         @order.address = current_customer.post_address
 
       elsif params[:order][:select_address]=="2"
-      if Destination.exists?(params[:order][:destination_id])
-          @address = Destination.find(params[:order][:destination_id])
-          @order.name = @address.name
-          @order.post_code = @address.post_code
-          @order.address = @address.address
-        else
-          redirect_to request.referer
-        end
+        address = Destination.find(params[:order][:destinations_id])
+        @order.name = address.name
+        @order.post_code = address.post_code
+        @order.address = address.address
+
       elsif params[:order][:select_address]=="3"
-          @order.name = params[:order][:name]
-          @order.post_code = params[:order][:post_code]
-          @order.address = params[:order][:address]
-   #     address_new = current_customer.addresses.new(address_params)
-        else
-          redirect_to request.referer
-        end
+        @order.name = params[:order][:name]
+        @order.post_code = params[:order][:post_code]
+        @order.address = params[:order][:address]
+      else
+        redirect_to request.referer
+      end
 
       @cart_items = current_customer.cart_items.all
       @order.customer_id= current_customer.id
@@ -46,7 +42,7 @@ class Public::OrdersController < ApplicationController
 
     current_customer.cart_items.each do |cart_item|
       @order_item = OrderDetail.new
-      @order_item.item.id = cart_item.item_id
+      @order_item.item_id = cart_item.item_id
       @order_item.order_id = @order.id
       @order_item.amount = cart_item.amount
       @order_item.total_price = cart_item.item.with_tax_price
@@ -64,7 +60,7 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @order_details = @order.order_datail
+    @order_items = @order.order_items
   end
 
   private
@@ -72,7 +68,5 @@ class Public::OrdersController < ApplicationController
     params.require(:order).permit(:payment,:post_code,:name,:address,:postage,:total,:order_status,:customer_id)
   end
 
- # def address_params
-  #  params.require(:order).permit(:post_code,:address,:name)
- # end
+
 end
