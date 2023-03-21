@@ -30,10 +30,12 @@
 
       <tr>
         <td>注文ステータス</td>
-          <td><%= form_with model: @order, url: admin_order_path, method: :patch do |f| %>
-              <%= f.select :status, Order.statuses.keys.map {|k| [I18n.t("enums.order.order_status.#{k}"), k]} %>
+          <td>
+            <%= form_with model: @order, url: admin_order_path(@order), method: :patch do |f| %>
+              <%= f.select :status, @order.order_status.keys.map {|k| [I18n.t("enums.order.order_status.#{k}"), k]} %>
               <%= f.submit "更新",class:"btn btn-primary" %>
-            <% end %>  </td>
+            <% end %>
+          </td>
       </tr>
     </tbody>
   </table>
@@ -52,17 +54,17 @@
     </thead>
 
     <tbody>
-         <% @order_details.each do |order_details| %>
+         <% @order_details.each do |order_detail| %>
         <tr>
-          <td><%= order_details.name %> </td>
-          <td><%= (order_detail.price * 1.1).floor %> </td>
+          <td><%= order_detail.item.name %> </td>
+          <td><%= (order_detail.item.price * 1.1).floor %> </td>
           <td><%= order_detail.amount %> </td>
-          <td><%= (order_detail.price * 1.1).floor * order_detail.amount %> </td>
+          <td><%= (order_detail.item.price * 1.1).floor * order_detail.amount %> </td>
           <td>
-            <%= form_with model: order_detail, url: admin_ordered_item_path(order_item), method: :patch do |f| %>
-            <%= f.select :production_status, OrderDetail.production_statuses.keys.map {|k| [I18n.t("enums.order_detail.production_status.#{k}"), k]} %>
-            <!--参考資料  https://blog.to-ko-s.com/enum-select-box/ -->
-            <%= f.submit "更新", class: "btn btn-success" %>
+            <%= form_with model:OrderDetail, url:admin_order_details_path(order_detail), method: :patch do |f| %>
+              <%= f.select :production_status_i18n, order_detail.production_statuses.key.map {|k| [I18n.t("enums.order_detail.production_status.#{k}"), k]} %>
+              <!--参考資料  https://blog.to-ko-s.com/enum-select-box/ -->
+              <%= f.submit "更新", class: "btn btn-success" %>
             <% end %>
           </td>
         </tr>
@@ -70,7 +72,7 @@
     </tbody>
   </table>
  </div>
-  
+
    <table>
         <thead>
           <tr>
