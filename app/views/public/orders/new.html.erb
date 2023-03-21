@@ -19,13 +19,12 @@
 
               <%= f.radio_button :select_address,1 %>
               <%= f.label :select_address_1,"ご自身の住所"%>
-              <p>
+             <p>
               〒<%= @customer.post_code%>
-              <%= @customer.post_address %><br>
-              <%= @customer.last_name%>
-              <%=@customer.first_name %>
-              </p>
-            <br>
+                  <%= @customer.post_address %><br>
+                 <%= @customer.last_name%><%=@customer.first_name %>
+              <br>
+             </p>
               <p>
               <%= f.radio_button :select_address,2 %>
               <%= f.label :select_address_2,"登録済住所から選択"%>
