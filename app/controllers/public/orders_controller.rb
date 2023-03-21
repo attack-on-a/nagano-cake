@@ -9,9 +9,9 @@ class Public::OrdersController < ApplicationController
     @order=Order.new(order_params)
 
       if params[:order][:select_address]=="1"
-        @order_name = current_customer.last_name + current_customer.first_name
-        @order_post_code = current_customer.post_code
-        @order_address = current_customer.post_address
+        @order.name = current_customer.last_name + current_customer.first_name
+        @order.post_code = current_customer.post_code
+        @order.address = current_customer.post_address
 
       elsif params[:order][:select_address]=="2"
 
@@ -59,8 +59,7 @@ class Public::OrdersController < ApplicationController
 
 
   def index
-    @orders = Order.where(customer_id: current_customer)
-
+    @orders = Order.where(customer_id: current_customer).order('id DESC')
   end
 
   def show

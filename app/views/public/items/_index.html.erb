@@ -1,11 +1,11 @@
 <div class="d-flex flex-wrap mt-4">
   <% active_items.each do |item| %>
-      <div class="mx-2 my-3">
-        <%= link_to item_path(item) do %>
-          <%= image_tag item.get_item_image, size:"150x100" %>
-        <% end %>
-        <div class="d-flex flex-wrap" style="width:150px;"><strong><%= item.name %></strong></div>
-        <div><strong>￥<%= (item.price).to_s(:delimited) %></strong></div>
-      </div>
+    <div class="mx-2 my-3">
+      <%= link_to item_path(item) do %>
+        <%= image_tag item.get_item_image, size:"150x100" %>
+      <% end %>
+      <div class="d-flex flex-wrap" style="width:150px;"><strong><%= item.name %></strong></div>
+      <div><strong>￥<%= (item.price).to_s(:delimited) %></strong></div>
+    </div>
   <% end %>
 </div>
