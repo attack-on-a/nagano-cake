@@ -5,6 +5,13 @@ class Item < ApplicationRecord
 
   validates :price, numericality: { only_integer: true }
 
+  with_options presence: true do
+    validates:genre_id
+    validates:name
+    validates:explanatory
+    validates:price
+    validates:genre_id
+  end
 
   has_one_attached :image
 
