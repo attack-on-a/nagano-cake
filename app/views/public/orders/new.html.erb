@@ -28,7 +28,7 @@
               <p>
               <%= f.radio_button :select_address,2 %>
               <%= f.label :select_address_2,"登録済住所から選択"%>
-              <%= f.select :address_id,options_from_collection_for_select(current_customer.destinations.all,:id,:address_display)%>
+              <%= f.select :destination_id,options_from_collection_for_select(@customer.destinations.all,:id,:address_display)%>
               </p>
             <br>
               <p>

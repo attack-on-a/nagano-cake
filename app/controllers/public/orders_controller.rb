@@ -5,6 +5,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
+
     @order=Order.new(order_params)
 
       if params[:order][:select_address]=="1"
@@ -14,11 +15,11 @@ class Public::OrdersController < ApplicationController
 
       elsif params[:order][:select_address]=="2"
 
-      #  address = @order.find_by(address_id:destination)current_customer.destinations
-        @order_name = address_id.name
-        @order_post_code = address_id.post_code
-        @order_address = address_id.address
-
+        @address = Destination.find(params[:order][:destination_id])
+        @order.name = @address.name
+        @order.post_code = @address.post_code
+        @order.address = @address.address
+        
       elsif params[:order][:select_address]=="3"
         @order.name = params[:order][:name]
         @order.post_code = params[:order][:post_code]
@@ -39,7 +40,6 @@ class Public::OrdersController < ApplicationController
     @order=Order.new(order_params)
     @order.customer_id= current_customer.id
     @order.save
-
     current_customer.cart_items.each do |cart_item|
       @order_item = OrderDetail.new
       @order_item.item_id = cart_item.item_id
