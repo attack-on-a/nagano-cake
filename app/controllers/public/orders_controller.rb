@@ -51,7 +51,7 @@ class Public::OrdersController < ApplicationController
     end
 
     redirect_to action: :complete
-    current_customer.cart_items.destroy_all
+   # current_customer.cart_items.destroy_all
    end
 
   def complete
