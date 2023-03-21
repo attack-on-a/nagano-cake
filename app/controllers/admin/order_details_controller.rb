@@ -18,7 +18,7 @@ class Admin::OrderDetailsController < ApplicationController
       @order.update(order_status: 3) if is_updated
       # is_updatedがtrueの場合に、注文ステータスが「発送準備中」に更新されます。上記のif文でis_updatedがfalseになっている場合、更新されません。
     end
-    redirect_to admin_order_path(@order_detail)
+    redirect_to admin_order_path(@order_detail.order_id)
   end
 
   private
