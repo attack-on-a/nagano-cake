@@ -11,7 +11,6 @@ class Item < ApplicationRecord
     validates:explanatory
     validates:price
     validates:genre_id
-    validates:is_active
   end
 
   has_one_attached :image
