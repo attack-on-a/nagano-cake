@@ -1,8 +1,12 @@
-<h1>ジャンル編集</h1>
-<%= form_with model:@genre,url:admin_genre_path(@genre) do |f| %>
-
-<h4>ジャンル名</h4>
-<%= f.text_field :name %>
-<%= f.submit "変更を保存",class:"btn btn-success"%>
-
-<% end %>
+<div class="container">
+  <div class="row p-2">
+    <h4>ジャンル編集</h4>
+  </div>
+  <div class="row offset-1 p-2">
+    <%= form_with model:@genre,url:admin_genre_path(@genre) do |f| %>
+      <h5>ジャンル名</h5>
+      <%= f.text_field :name %>
+      <%= f.submit "変更を保存",class:"btn btn-success"%>
+      <% end %>
+  </div>
+</div>
