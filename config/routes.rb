@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
     # customer
     resources :customers, only: [:index, :show, :edit, :update]
+    get 'customers/orders/:id' => 'customers#orders'
 
     # genre
     resources :genres, only: [:index, :create, :edit, :update]
