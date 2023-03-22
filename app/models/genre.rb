@@ -4,13 +4,8 @@ class Genre < ApplicationRecord
 
   scope :merge_genres, -> (genres){ }
 
-  def self.search_items_for(content)
-
-    if method == 'perfect'
-      genres = Genre.where(name: content)
-    end
-
-    return genres.inject(init = []) {|result, genre| result + genre.items}
-
+  def self.search_for(content)
+    method = Genre.where(name: content)
   end
+
 end
