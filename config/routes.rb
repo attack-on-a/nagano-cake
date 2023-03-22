@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  get 'searchs/search'
   namespace :admin do
     # order
     resources :orders, only: [:show, :update, :index]
 
     # customer
     resources :customers, only: [:index, :show, :edit, :update]
+    get 'customers/orders/:id' => 'customers#orders'
 
     # genre
     resources :genres, only: [:index, :create, :edit, :update]
