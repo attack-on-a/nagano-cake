@@ -1,11 +1,10 @@
 class Admin::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
-    @customer = Order.customer_id
-    @order_details = Order_detail.id
-    
+    @customer = @order.customer
+    @pay_details =  @order.order_details
   end
-  
+
 
   def update
       @order = Order.find(params[:id])
