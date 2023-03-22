@@ -35,8 +35,11 @@ class Public::CartItemsController < ApplicationController
       end
     end
 
-    @cart_item.save
-    redirect_to cart_items_path
+    if @cart_item.save
+      redirect_to cart_items_path
+    else
+      redirect_to cart_items_path
+    end
   end
 
 
