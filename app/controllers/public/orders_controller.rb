@@ -19,7 +19,7 @@ class Public::OrdersController < ApplicationController
         @order.name = @address.name
         @order.post_code = @address.post_code
         @order.address = @address.address
-        
+
       elsif params[:order][:select_address]=="3"
         @order.name = params[:order][:name]
         @order.post_code = params[:order][:post_code]
