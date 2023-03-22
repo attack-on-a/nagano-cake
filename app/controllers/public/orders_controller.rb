@@ -24,22 +24,22 @@ class Public::OrdersController < ApplicationController
         @order.name = params[:order][:name]
         @order.post_code = params[:order][:post_code]
         @order.address = params[:order][:address]
-        @order.save
+      
       else
         redirect_to request.referer
       end
 
       @cart_items = current_customer.cart_items.all
       @order.customer_id= current_customer.id
-  end
-
+      end
+   end
 
 
 
   def create
     @order=Order.new(order_params)
     @order.customer_id= current_customer.id
-    @order.save
+  if @order.save
     current_customer.cart_items.each do |cart_item|
       @order_item = OrderDetail.new
       @order_item.item_id = cart_item.item_id
@@ -49,9 +49,9 @@ class Public::OrdersController < ApplicationController
 
       @order_item.save
     end
-
+   
     redirect_to action: :complete
-   # current_customer.cart_items.destroy_all
+    current_customer.cart_items.destroy_all
    end
 
   def complete

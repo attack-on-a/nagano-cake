@@ -1,8 +1,8 @@
 class Admin::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
-    @customer = Order.customer_id
-    @order_details = Order_detail.id
+    @customer = @order.customer.id
+    @order_details = @order.id
     
   end
   

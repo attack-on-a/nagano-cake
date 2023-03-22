@@ -6,6 +6,8 @@
   </div>
     <div class="row align-items-center">
       <div class="col">
+        <!--% if @order.errors.any?%-->
+        <!--%= @order.errors.count%-->
         <%= form_with model:@order,url: orders_confirm_path,method: :post do |f|%>
           <h5 class="font-weight-bold">支払方法</h5>
             <p>
