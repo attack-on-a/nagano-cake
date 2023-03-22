@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'searchs/search'
   namespace :admin do
     # order
     resources :orders, only: [:show, :update, :index]

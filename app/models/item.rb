@@ -23,6 +23,10 @@ class Item < ApplicationRecord
     (price * 1.1).floor
   end
 
+  def self.search_for(content)
+    method = Item.saled.where('name LIKE ?', '%'+content+'%')
+  end
+
   scope :saled, -> { where(is_active: true) }
 
 
