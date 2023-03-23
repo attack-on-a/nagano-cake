@@ -34,7 +34,7 @@
             <td>
               <%= form_with model: @order, url: admin_order_path, method: :patch do |f| %>
               <%= f.select :order_status, Order.order_statuses.keys.map {|k| [I18n.t("enums.order.order_status.#{k}"), k]} %>
-              <%= f.submit "更新",class:"btn btn-primary" %>
+              <%= f.submit "更新",class:"btn btn-success btn-sm ml-4" %>
               <% end %>
             </td>
          </tr>
@@ -57,18 +57,18 @@
           </tr>
         </thead>
 
-        <tbody>
+        <tbody  >
          <% @pay_details.each do |order_detail| %>
           <tr>
             <td><%= order_detail.item.name %> </td>
-            <td><%= (order_detail.total_price*1.10).floor %> </td>
+            <td><%= order_detail.total_price.to_s(:delimited) %> </td>
             <td><%= order_detail.amount %> </td>
-            <td><%= (order_detail.total_price*1.10).floor * order_detail.amount %> </td>
+            <td><%= (order_detail.total_price * order_detail.amount).to_s(:delimited) %> </td>
             <td>
             <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch do |f| %>
             <%= f.select :production_status, OrderDetail.production_statuses.keys.map {|k| [I18n.t("enums.order_detail.production_status.#{k}"), k]} %>
             <!--参考資料  https://blog.to-ko-s.com/enum-select-box/ -->
-            <%= f.submit "更新", class: "btn btn-success" %>
+            <%= f.submit "更新", class: "btn btn-success btn-sm ml-4"%>
             <% end %>
             </td>
           </tr>
@@ -82,7 +82,7 @@
         <thead>
           <tr>
             <td>商品合計</td>
-            <td> <%= (@order.total*1.10).floor  %>  </td>
+            <td> <%= @order.total.to_s(:delimited) %>  </td>
           </tr>
         </thead>
         <tbody>
@@ -92,7 +92,7 @@
           </tr>
           <tr>
             <th>ご請求額</th>
-            <td><%= (@order.total*1.10).floor + @order.postage %></td>
+            <td><%= (@order.total + @order.postage).to_s(:delimited) %></td>
           </tr>
         </tbody>
       </table>
