@@ -1,6 +1,6 @@
 class Public::ItemsController < ApplicationController
   def index
-    @items = Item.saled
+    @items = params[:name].present? ? Genre.find(params[:name]).Items : Item.saled
     @active_items = @items.page(params[:page]).per(8)
     @genres = Genre.all
   end
