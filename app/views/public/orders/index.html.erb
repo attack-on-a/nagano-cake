@@ -31,7 +31,7 @@
          <%= i.item.name %> <br> <% end %>
        </td>
        <td>
-         <%= order.total %>円
+         <%= order.total.to_s(:delimited) %>円
        </td>
        <td>
          <%= order.order_status_i18n %>
