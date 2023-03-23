@@ -14,8 +14,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <% @customers.each do |customer| %>
+          <% @customers.each do |customer| %>
+            <tr>
               <td><%= customer.id %></td>
               <td><%= link_to customer.last_name+customer.first_name, admin_customer_path(customer.id) %></td>
               <td><%= customer.email %></td>
@@ -24,8 +24,8 @@
               <% else %>
                 <td class="text-secondary">退会</td>
               <% end %>
-            <% end %>
-          </tr>
+            </tr>
+          <% end %>
         </tbody>
       </table>
       <%= paginate @customers %>
