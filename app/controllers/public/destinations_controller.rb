@@ -14,7 +14,7 @@ class Public::DestinationsController < ApplicationController
     if @destination.save
       redirect_to  destinations_path
     else
-      render :index
+      redirect_to request.referer
     end
   end
 
