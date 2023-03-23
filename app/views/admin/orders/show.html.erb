@@ -8,7 +8,7 @@
         <tr>
           <td>購入者</td>
           <td>
-           <%= @customer.first_name %> <%= @customer.last_name  %>
+            <%= @customer.last_name  %>   <%= @customer.first_name %>
           </td>
         </tr>
 
@@ -82,7 +82,7 @@
         <thead>
           <tr>
             <td>商品合計</td>
-            <td> <%= @order.total - @order.postage %>  </td>
+            <td> <%= (@order.total*1.10).floor  %>  </td>
           </tr>
         </thead>
         <tbody>
@@ -92,7 +92,7 @@
           </tr>
           <tr>
             <th>ご請求額</th>
-            <td><%= @order.total %></td>
+            <td><%= (@order.total*1.10).floor + @order.postage %></td>
           </tr>
         </tbody>
       </table>

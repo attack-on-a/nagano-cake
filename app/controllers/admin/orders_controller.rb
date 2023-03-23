@@ -5,7 +5,6 @@ class Admin::OrdersController < ApplicationController
     @pay_details =  @order.order_details
   end
 
-
   def update
       @order = Order.find(params[:id])
       @order_details = OrderDetail.where(order_id: params[:id])
