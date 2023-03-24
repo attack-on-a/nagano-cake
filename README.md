@@ -39,12 +39,16 @@
 
 ・会員一覧が確認でき、会員が退会しているなどの確認も行えます。
 
-## バージョン
+## 使用したGem及びバージョン
 ・Rails : 6.1.7
 
 ・Devise : 4.9
 
 ・Bootstrap : 4.5
+
+・Kaminari
+
+・enum
 
 ## 担当
 **[Team attack-on-a]**
