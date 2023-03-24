@@ -6,7 +6,7 @@
 ## バージョン
 ・Rails :6.1.7
 
-・Devise :
+・Devise :4.9
 
 ・Bootstrap :4.5
 
