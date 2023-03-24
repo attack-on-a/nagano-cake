@@ -43,6 +43,8 @@
 
 ・[テーブル提議書.pdf](https://github.com/attack-on-a/nagano-cake/files/11059689/default.pdf)
 
+・[ER図.pdf](https://github.com/attack-on-a/nagano-cake/files/11059722/ER.pdf)
+
 ## 使用したGem及びバージョン
 
 ・Rails : 6.1.7
