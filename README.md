@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
+長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイト
 
-Things you may want to cover:
+## バージョン
+・Rails :6.1.7
 
-* Ruby version
+・Devise :
 
-* System dependencies
+・Bootstrap :4.5
 
-* Configuration
+## 担当
+**[Team attack-on-a]**
 
-* Database creation
+・こってぃー
 
-* Database initialization
+・しょう
 
-* How to run the test suite
+・たけ
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+・むろ
