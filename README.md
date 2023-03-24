@@ -11,7 +11,7 @@
 ・Bootstrap :4.5
 
 ## 担当
-** [Team attack-on-a] **
+**[Team attack-on-a]**
 
 ・こってぃー
 
