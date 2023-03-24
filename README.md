@@ -39,7 +39,12 @@
 
 ・会員一覧が確認でき、会員が退会しているなどの確認も行えます。
 
+## 設計書 
+
+・[テーブル提議書.pdf](https://github.com/attack-on-a/nagano-cake/files/11059689/default.pdf)
+
 ## 使用したGem及びバージョン
+
 ・Rails : 6.1.7
 
 ・Devise : 4.9
