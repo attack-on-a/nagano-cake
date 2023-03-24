@@ -45,6 +45,8 @@
 
 ・[ER図.pdf](https://github.com/attack-on-a/nagano-cake/files/11059722/ER.pdf)
 
+・[アプリケーション詳細設計書.pdf](https://github.com/attack-on-a/nagano-cake/files/11059813/default.pdf)
+
 ## 使用したGem及びバージョン
 
 ・Rails : 6.1.7
