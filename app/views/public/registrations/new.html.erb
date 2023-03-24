@@ -1,64 +1,43 @@
 <div class="container">
-  <h4 class="text-dark bg-gray-400 p-4 mb-0">新規会員登録</h4>
- 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
-     <div class="mb-3 row">
-        <div class="form-group">
-          <%= f.label :"名前",class: "col-auto"%>
-          <%= f.label :"(姓)",class: "col-auto"%>
-          <%= f.text_field :last_name,autofocus: true,placeholder: "令和",class: "col-auto"%>
-          <%= f.label :"(名)",class: "col-auto"%>
-          <%= f.text_field :first_name,placeholder: "道子",class: "col-auto"%>
-        </div>
-      </div>
-      <div class="row g-3">
-        <div class="form-group">
-          <%= f.label :"フリガナ",class: "col-auto" %>
-          <%= f.label :"(セイ)" ,class: "col-auto"%>
-          <%= f.text_field :kana_last_name,placeholder: "レイワ",class: "col-auto" %>
-          <%= f.label :"(メイ)" ,class: "col-auto"%>
-          <%= f.text_field :kana_first_name,placeholder: "ミチコ",class: "col-auto"%>
-        </div>
-      </div>
-
-  <div class="form-group">
-    <%= f.label :"メールアドレス",class: "col-auto" %>
-    <%= f.email_field :email, autocomplete: "email",placeholder: "sample@example.com",class: "col-auto" %>
+  <div class="row offset-1">
+    <h4 class="text bg-gray-400 p-4 mb-0">新規会員登録</h4>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "public/shared/error_messages", resource: resource %>
+    </div>
+      <div class="form-group">
+        <table>
+          <tr>
+            <th><%= f.label :"名前",class: "col"%></th><th>(姓)</th><td><%= f.text_field :last_name,autofocus: true,placeholder: "令和",class: "col-auto"%></td>
+                                                       <th>(名)</th><td><%= f.text_field :first_name,placeholder: "道子",class: "col px-0"%></td>
+          </tr>
+          <tr>
+            <th><%= f.label :"フリガナ",class: "col" %></th><th>(セイ)</th><td><%= f.text_field :kana_last_name,placeholder: "レイワ",class: "col-auto" %></td>
+                                                            <th>(メイ)</th><td><%= f.text_field :kana_first_name,placeholder: "ミチコ",class: "col px-0"%></td>
+          </tr>
+          <tr>
+            <th><%= f.label :"メールアドレス",class: "col" %></th><th></th><td><%= f.email_field :email, autocomplete: "email",placeholder: "sample@example.com",class: "col-auto" %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :"郵便番号(ハイフンなし)",class: "col"%></th><th></th><td><%= f.text_field :post_code,placeholder: "0000000",class: "col-auto"%></td>
+          </tr>
+          <tr>
+            <th><%= f.label :"住所",class: "col"%></th><th></th><td><%= f.text_field :post_address,size: "55",placeholder: "東京都渋谷区代々木神園町０−０",class: "col-auto"%></td>
+          </tr>
+          <tr>
+            <th><%= f.label :"電話番号(ハイフンなし)",class: "col"%></th><th></th><td><%= f.text_field :phone_number, autofocus: true,placeholder: "0000000000",class: "col-auto"%></td>
+          </tr>
+          <tr>
+            <th><%= f.label :"パスワード(６文字以上)",class: "col-auto"%></th><th></th><td><%= f.password_field :password, autocomplete: "new-password",class: "col-auto"%></td>
+          </tr>
+          <tr>
+            <th><%= f.label :"パスワード(確認用)",class: "col-auto"%></th><th></th><td><%= f.password_field :password_confirmation, autocomplete: "new-password",class: "col-auto"%></td>
+          </tr>
+          <tr>
+            <th colspan="2"></th><td class="p-3"><%= f.submit "新規登録",class:"btn btn-success"%></td>
+          </tr>
+        </table>
+      <% end %>
+    <h4 class="text bg-gray-400 p-4 mb-0">既に登録済みの方</h4>
+    <p><%= link_to "こちら",new_customer_session_path %>からログインしてください</p>
   </div>
-
-  <div class="form-group">
-    <%= f.label :"郵便番号(ハイフンなし)",class: "col-auto"%>
-    <%= f.text_field :post_code,placeholder: "0000000",class: "col-auto"%>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :"住所",class: "col-auto"%>
-    <%= f.text_field :post_address,size: "55",placeholder: "東京都渋谷区代々木神園町０−０",class: "col-auto"%>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :"電話番号(ハイフンなし)",class: "col-auto"%>
-    <%= f.text_field :phone_number, autofocus: true,placeholder: "0000000000",class: "col-auto"%>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :"パスワード(６文字以上)",class: "col-auto"%>
-    <%= f.password_field :password, autocomplete: "new-password",class: "col-auto"%>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :"パスワード(確認用)",class: "col-auto"%>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "col-auto"%>
-  </div>
-
-  <div class="col-auto">
-    <%= f.submit "新規登録",class:"btn btn-success"%>
-  </div>
-<% end %>
-
-<h4>既に登録済みの方</h4>
-<p><%= link_to "こちら",new_customer_session_path %>からログインしてください</p>
-
-
 </div>
