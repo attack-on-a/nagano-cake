@@ -1,7 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+概要
+
+長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイト
+
 
 Things you may want to cover:
 
