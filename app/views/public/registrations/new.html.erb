@@ -5,35 +5,54 @@
       <%= render "public/shared/error_messages", resource: resource %>
     </div>
       <div class="form-group">
-        <table>
+        <table class="offset-1">
           <tr>
-            <th><%= f.label :"名前",class: "col"%></th><th>(姓)</th><td><%= f.text_field :last_name,autofocus: true,placeholder: "令和",class: "col-auto"%></td>
-                                                       <th>(名)</th><td><%= f.text_field :first_name,placeholder: "道子",class: "col px-0"%></td>
+            <th><%= f.label :"名前" %></th>
+            <th style="width:10%" class="text-center">(姓)</th>
+            <td><%= f.text_field :last_name,autofocus: true,placeholder: "令和", class:"my-3" %></td>
+            <th style="width:10%" class="text-center">(名)</th>
+            <td><%= f.text_field :first_name,placeholder: "道子" %></td>
+          </tr>
+          <tr class="m-2">
+            <th><%= f.label :"フリガナ" %></th>
+            <th class="text-center">(セイ)</th>
+            <td><%= f.text_field :kana_last_name,placeholder: "レイワ" %></td>
+            <th class="text-center">(メイ)</th>
+            <td><%= f.text_field :kana_first_name,placeholder: "ミチコ"  %></td>
           </tr>
           <tr>
-            <th><%= f.label :"フリガナ",class: "col" %></th><th>(セイ)</th><td><%= f.text_field :kana_last_name,placeholder: "レイワ",class: "col-auto" %></td>
-                                                            <th>(メイ)</th><td><%= f.text_field :kana_first_name,placeholder: "ミチコ",class: "col px-0"%></td>
+            <th><%= f.label :"メールアドレス" %></th>
+            <th></th>
+            <td><%= f.email_field :email, autocomplete: "email",placeholder: "sample@example.com", class:"my-3"  %></td>
           </tr>
           <tr>
-            <th><%= f.label :"メールアドレス",class: "col" %></th><th></th><td><%= f.email_field :email, autocomplete: "email",placeholder: "sample@example.com",class: "col-auto" %></td>
+            <th><%= f.label :"郵便番号(ハイフンなし)" %></th>
+            <th></th>
+            <td><%= f.text_field :post_code,placeholder: "0000000" %></td>
           </tr>
           <tr>
-            <th><%= f.label :"郵便番号(ハイフンなし)",class: "col"%></th><th></th><td><%= f.text_field :post_code,placeholder: "0000000",class: "col-auto"%></td>
+            <th scope="row"><%= f.label :"住所"%></th>
+            <th></th>
+            <td colspan="3"><%= f.text_field :post_address,size: "55",placeholder: "東京都渋谷区代々木神園町０−０", class:"my-3"  %></td>
           </tr>
           <tr>
-            <th><%= f.label :"住所",class: "col"%></th><th></th><td><%= f.text_field :post_address,size: "55",placeholder: "東京都渋谷区代々木神園町０−０",class: "col-auto"%></td>
+            <th><%= f.label :"電話番号(ハイフンなし)" %></th>
+            <th></th>
+            <td><%= f.text_field :phone_number, autofocus: true,placeholder: "0000000000" %></td>
           </tr>
           <tr>
-            <th><%= f.label :"電話番号(ハイフンなし)",class: "col"%></th><th></th><td><%= f.text_field :phone_number, autofocus: true,placeholder: "0000000000",class: "col-auto"%></td>
+            <th><%= f.label :"パスワード(６文字以上)" %></th>
+            <th></th>
+            <td><%= f.password_field :password, autocomplete: "new-password", class:"my-3"  %></td>
           </tr>
           <tr>
-            <th><%= f.label :"パスワード(６文字以上)",class: "col-auto"%></th><th></th><td><%= f.password_field :password, autocomplete: "new-password",class: "col-auto"%></td>
+            <th><%= f.label :"パスワード(確認用)" %></th>
+            <th></th>
+            <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
           </tr>
           <tr>
-            <th><%= f.label :"パスワード(確認用)",class: "col-auto"%></th><th></th><td><%= f.password_field :password_confirmation, autocomplete: "new-password",class: "col-auto"%></td>
-          </tr>
-          <tr>
-            <th colspan="2"></th><td class="p-3"><%= f.submit "新規登録",class:"btn btn-success"%></td>
+            <th colspan="2"></th>
+            <td><%= f.submit "新規登録",class:"px-3 my-3 btn btn-success" %></td>
           </tr>
         </table>
       <% end %>
