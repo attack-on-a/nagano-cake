@@ -9,7 +9,7 @@
         <%= link_to "編集する", customers_information_edit_path, class: "btn btn-success ml-5 pr-4 pl-4" %>
       </div>
       <table class="table">
-        <tbody>
+        <tbody class="bg-white">
           <tr>
             <td class="table-active border border-dark">氏名</td>
             <td class="border border-dark"><%= @customer.last_name+@customer.first_name %></td>

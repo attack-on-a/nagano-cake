@@ -11,10 +11,16 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
+    <div style="background-color:#e3f2fd">
+      <%= render 'layouts/header' %>
+    </div>
     <main>
-      <%= yield %>
+      <div class='pt-5 pb-5' style='background-color:#f4fbfe'>
+        <%= yield %>
+      </div>
     </main>
-    <%= render 'layouts/footer' %>
+    <div class="pt-3" style="background-color:#e3f2fd">
+      <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>

@@ -19,29 +19,31 @@
       <tr>
         <td>宛名</td>
         <td> <%= f.text_field :name, placeholder: "令和道子" %> </td>
-        <td> <%= f.submit '新規登録', calss: "btn btn-success" %> </td>
+        <td> <%= f.submit '新規登録', class: "btn btn-primary" %> </td>
       </tr>
      </table>
      <% end %>
 
-    <table class="table table-bordered col-11">
-     <thead>
+    <table class="table table-bordered table-hover col-11">
+     <thead class="table-active">
       <tr>
         <th>郵便番号</th>
         <th>住所</th>
         <th>宛名</th>
-        <tr></tr>
+        <th></th>
       </tr>
      </thead>
-     <tbody>
+     <tbody class="bg-white">
      <% @destinations.each do |destination| %>
          <tr>
           <td><%= destination.post_code %></td>
           <td><%= destination.address %></td>
           <td><%= destination.name %></td>
           <td>
-          <%= link_to "編集する", edit_destination_path(destination.id), class: "btn btn-success" %>
-          <%= link_to "削除する", destination_path(destination.id), class: "btn btn-danger", method: :delete %>
+            <div>
+              <%= link_to "編集する", edit_destination_path(destination.id), class: "btn btn-success" %>
+              <%= link_to "削除する", destination_path(destination.id), class: "btn btn-danger", method: :delete %>
+            </div>
           </td>
         </tr>
      <% end %>
