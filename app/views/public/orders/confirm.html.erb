@@ -21,9 +21,9 @@
               <tr>
                 <td><%= image_tag order_item.item.get_item_image, size:'50x50' %>
                 <%= order_item.item.name %></td>
-                <td><%= (order_item.item.price * 1.1).floor.to_s(:delimited) %></td>
+                <td>¥<%= (order_item.item.price * 1.1).floor.to_s(:delimited) %></td>
                 <td><%= order_item.amount %></td>
-                <td><%=((order_item.item.price * order_item.amount)* 1.1).floor.to_s(:delimited) %></td>
+                <td>¥<%=((order_item.item.price * order_item.amount)* 1.1).floor.to_s(:delimited) %></td>
               </tr>
               <% @order.total += ((order_item.item.price * order_item.amount)* 1.1).floor %>
             <% end %>
@@ -35,15 +35,15 @@
           <% @order.postage = 800 %>
           <tr>
             <th class="table-active">送料</th>
-            <td class="bg-white"><%= @order.postage %></td>
+            <td class="bg-white">¥<%= @order.postage %></td>
           </tr>
           <tr>
             <th class="table-active">商品合計</th>
-            <td class="bg-white"><%= @order.total.to_s(:delimited) %></td>
+            <td class="bg-white">¥<%= @order.total.to_s(:delimited) %></td>
           </tr>
           <tr>
             <th class="table-active">請求金額</th>
-            <td class="bg-white"><%= (@order.postage + @order.total).to_s(:delimited) %></td>
+            <td class="bg-white">¥<%= (@order.postage + @order.total).to_s(:delimited) %></td>
           </tr>
         </table>
       </div>
