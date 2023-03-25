@@ -10,16 +10,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style='background-color:#f4fbfe'>
     <div style="background-color:#e3f2fd">
       <%= render 'layouts/header' %>
     </div>
     <main>
-      <div class='pt-5 pb-5' style='background-color:#f4fbfe'>
+      <div class='pt-5 pb-5'>
         <%= yield %>
-      </div>
     </main>
-    <div class="fixed-bottom pt-3" style="background-color:#e3f2fd">
+    <div class="fixed-bottom pt-3" style="background-color:#f4fbfe">
       <%= render 'layouts/footer' %>
     </div>
   </body>
