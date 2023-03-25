@@ -6,7 +6,7 @@
 
     <div class='col-9'>
       <div class="row">
-        <h3><strong>商品一覧</strong> <span class="h5 pt-2"> (全<%= @items.count %>件)</span></h3>
+        <h4>商品一覧<span class="h5 pt-2"> (全<%= @items.count %>件)</span></h4>
       </div>
       <div class="d-flex flex-wrap mt-4">
         <%= render 'public/items/index', active_items:@active_items %>
