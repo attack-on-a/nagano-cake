@@ -1,45 +1,45 @@
 <div class="container">
-  <div class="row" style="margin-top:20px; margin-bottom:20px;">
+  <div class="row" style="margin-bottom:20px;">
     <h4><%= @customer.last_name+@customer.first_name %>さんの会員詳細</h4>
   </div>
   <div class="row">
     <div class="col-md-9">
-      <table class="table table-borderless">
+      <table class="table table-borderless table-active">
         <thead>
           <tr>
             <td>会員ID</td>
-            <td><%= @customer.id %></td>
+            <td class="bg-white"><%= @customer.id %></td>
           </tr>
           <tr>
             <td>氏名</td>
-            <td><%= @customer.last_name+@customer.first_name %></td>
+            <td class="bg-white"><%= @customer.last_name+@customer.first_name %></td>
           </tr>
           <tr>
             <td>フリガナ</td>
-            <td><%= @customer.kana_last_name+@customer.kana_first_name %></td>
+            <td class="bg-white"><%= @customer.kana_last_name+@customer.kana_first_name %></td>
           </tr>
           <tr>
             <td>郵便番号</td>
-            <td><%= @customer.post_code %></td>
+            <td class="bg-white"><%= @customer.post_code %></td>
           </tr>
           <tr>
             <td>住所</td>
-            <td><%= @customer.post_address %></td>
+            <td class="bg-white"><%= @customer.post_address %></td>
           </tr>
           <tr>
             <td>電話番号</td>
-            <td><%= @customer.phone_number %></td>
+            <td class="bg-white"><%= @customer.phone_number %></td>
           </tr>
           <tr>
             <td>メールアドレス</td>
-            <td><%= @customer.email %></td>
+            <td class="bg-white"><%= @customer.email %></td>
           </tr>
           <tr>
             <td>会員ステータス</td>
             <% if @customer.is_deleted == false %>
-              <td class="text-success">有効</td>
+              <td class="text-success bg-white">有効</td>
             <% else %>
-              <td class="text-secondary">退会</td>
+              <td class="text-secondary bg-white">退会</td>
             <% end %>
           </tr>
         </thead>
