@@ -1,2 +1,21 @@
-<h1>Public::Items#index</h1>
-<p>Find me in app/views/public/items/index.html.erb</p>
+<div class='container'>
+  <div class='row', style="width: 100%;">
+    <div class='col-3'>
+      <%= render 'public/items/left_menu', genres:@genres %>
+    </div>
+
+    <div class='col-9'>
+      <div class="row">
+        <h4>商品一覧<span class="h5 pt-2"> (全<%= @items.count %>件)</span></h4>
+      </div>
+      <div class="d-flex flex-wrap mt-4">
+        <%= render 'public/items/index', active_items:@active_items %>
+      </div>
+
+      <div class="d-flex justify-content-center mt-5">
+        <%= paginate @active_items %>
+      </div>
+
+    </div>
+  </div>
+</div>
