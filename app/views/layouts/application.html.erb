@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>NaganoCake</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,16 +10,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body style='background-color:#916d5d'>
-    <div style="background-color:#a86965">
-      <%= render 'layouts/header' %>
-    </div>
-    <main>
-      <div class='pt-5 pb-5'>
-        <%= yield %>
-    </main>
-    <div class="fixed-bottom pt-3" style="background-color:#916d5d">
-      <%= render 'layouts/footer' %>
-    </div>
+  <body>
+    <%= yield %>
   </body>
 </html>

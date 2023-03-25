@@ -1,27 +1,2 @@
-<div class="offset-2">
-
-  <div class="row mt-4">
-    <h4>配送先編集</h4>
-  </div>
-
-
-  <div class="row">
-     <%= form_with model: @destination, url: destination_path(@destination), method: :patch do |f| %>
-    <table>
-      <tr>
-        <td>郵便番号(ハイフンなし)</td>
-        <td><%= f.text_field :post_code %> </td>
-      </tr>
-      <tr>
-        <td>住所</td>
-        <td> <%= f.text_field :address, size: "50*50" %> </td>
-      </tr>
-       <tr>
-        <td>宛名</td>
-        <td> <%= f.text_field :name %> </td>
-        <td> <%= f.submit '変更内容を変更', calss: "btn btn-success" %> </td>
-       </tr>
-    </table>
-    <% end %>
-  </div>
-</div>
+<h1>Public::Destinations#edit</h1>
+<p>Find me in app/views/public/destinations/edit.html.erb</p>

@@ -1,17 +1,2 @@
-<div class='container'>
-  <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-8 px-5 px-sm-0 mx-auto">
-      <div class="row d-flex">
-        <h3 class="bg-light">商品新規登録</h3>
-      </div>
-      <div class="m-4">
-        <% if @item.errors.any? %>
-          <h3 class="text-danger">
-            <%= @message %>
-          </h3>
-        <% end %>
-        <%= render 'admin/items/form', item: @item, method:admin_items_path %>
-      </div>
-  </div>
-</div>
-
+<h1>Admin::Items#new</h1>
+<p>Find me in app/views/admin/items/new.html.erb</p>
