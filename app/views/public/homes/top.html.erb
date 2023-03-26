@@ -1,4 +1,4 @@
-<div class="text-success test-center mx-auto">
+<div class="text-success text-center text-bold">
   <%= flash[:notice] %>
 </div>
 
@@ -9,16 +9,19 @@
     </div>
     <div class="col-md-9">
 
-      <div class="card bg-dark" style="width: 652px; height: auto;">
-        <img src="/assets/kari.jpeg" class="card-img" style="width: 650px; height: 300px;">
+      <div>
+        <img src="/assets/topcake.jpg" class="card-img" style="width: 700px; height: 450px;">
         <div class="card-img-overlay d-flex">
-          <div class="mx-auto">
-            <div class="card-title">
-              <p class="bg-light p-2 rounded">
+          <div>
+            <div class="card-body bg-light py-1 rounded">
+              <p>
                 ようこそ、ながのCAKEへ！<br>
-                このサイトはケーキの販売のECサイトになります。<br>
-                会員でない方も商品の閲覧はできますが、<br>
-                購入には会員登録が必要になります。
+                このサイトはケーキ販売の<br>
+                ECサイトになります。<br>
+                会員でない方も商品の<br>
+                閲覧はできますが、<br>
+                購入には会員登録が<br>
+                必要になります。
               </p>
             </div>
           </div>
@@ -31,6 +34,6 @@
     </div>
   </div>
   <div class="d-flex justify-content-end">
-    <%= link_to "全ての商品を見る >", items_path, class:"btn btn-outline-dark pr-3 pl-3 ml-4", :style=>"background-color:#fcfced;" %>
+    <%= link_to "全ての商品を見る >", items_path, class:"btn pr-3 pl-3 ml-4", :style=>"background-color:#fcfced;" %>
   </div>
 </div>
