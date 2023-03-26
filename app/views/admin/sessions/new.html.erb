@@ -1,28 +1,25 @@
 <div class="container">
   <div class="row">
-    <div class="offset-1">
-      <h4>管理者ログイン</h4>
-    </div>
-  </div>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-goup p-2">
-      <div class="row">
-        <%= f.label  :"メールアドレス",class: "offset-1"%>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "sample@example.com",class: "form-control ml-3 col-5"%>
+    <div class="card text-center mx-auto", style="background-color:#fcfced">
+      <div class="card-header text-center ">
+        <h4>管理者ログイン</h4>
       </div>
-    </div>
-    <div class="form-goup p-2">
-      <div class="row">
-        <%= f.label :"パスワード",class: "offset-1"%>
-        <%= f.password_field :password, autocomplete: "current-password",class: "form-control ml-5 col-3"%>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="card-body">
+        <div class="row p-2">
+          <%= f.label  :"メールアドレス"%>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "sample@example.com",class:"ml-3", :style =>"background-color:#fcfced"%>
+        </div>
+        <div class="row p-2">
+          <%= f.label :"パスワード"%>
+          <%= f.password_field :password, autocomplete: "current-password",class:"ml-5", :style =>"background-color:#fcfced"%>
+        </div>
       </div>
-    </div>
-  
-    <div class="form-group p-2 ml-4">
-      <div class="row offset-2 px-0">
+      <div class="card-footer text-muted">
         <%= f.submit "ログイン",class:"btn btn-primary"%>
       </div>
+      <% end %>
+      <%= render "admin/shared/links" %>
     </div>
-  <% end %>
-<%= render "admin/shared/links" %>
+  </div>
 </div>
