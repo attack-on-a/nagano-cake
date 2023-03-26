@@ -4,7 +4,7 @@
   </div>
   <div class="row">
     <div class="col-md-9 mx-auto">
-      <table class="table table-hover">
+      <table class="table table-hover bg-white">
         <thead class="table-active">
           <tr>
             <th><%= "会員ID" %></th>
@@ -13,7 +13,7 @@
             <th><%= "ステータス" %></th>
           </tr>
         </thead>
-        <tbody class="bg-white">
+        <tbody>
           <% @customers.each do |customer| %>
             <tr>
               <td><%= customer.id %></td>
