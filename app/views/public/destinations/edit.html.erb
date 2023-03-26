@@ -1,27 +1,33 @@
-<div class="offset-2">
-
+<div class="container">
   <div class="row mt-4">
-    <h4>配送先編集</h4>
-  </div>
-
-
-  <div class="row">
-     <%= form_with model: @destination, url: destination_path(@destination), method: :patch do |f| %>
-    <table>
-      <tr>
-        <td>郵便番号(ハイフンなし)</td>
-        <td><%= f.text_field :post_code %> </td>
-      </tr>
-      <tr>
-        <td>住所</td>
-        <td> <%= f.text_field :address, size: "50*50" %> </td>
-      </tr>
-       <tr>
-        <td>宛名</td>
-        <td> <%= f.text_field :name %> </td>
-        <td> <%= f.submit '変更内容を変更',class: "btn btn-success" %> </td>
-       </tr>
-    </table>
-    <% end %>
+    <div class="card mx-auto", style="background-color:#fcfced">
+      <div class="card-header text-center">
+        <h4>配送先編集</h4>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <%= form_with model: @destination, url: destination_path(@destination), method: :patch do |f| %>
+          <table>
+            <tr>
+              <th class="text-center">郵便番号(ハイフンなし)</th>
+              <td><%= f.text_field :post_code,:style =>"background-color:#fcfced"%> </td>
+            </tr>
+            <tr>
+              <th class="text-center">住所</th>
+              <td> <%= f.text_field :address, size: "50*50",:style =>"background-color:#fcfced"%> </td>
+            </tr>
+             <tr>
+              <th class="text-center">宛名</th>
+              <td> <%= f.text_field :name,:style =>"background-color:#fcfced" %> </td>
+             </tr>
+             <tr>
+               <th></th>
+               <td class="pt-2"><%= f.submit '変更内容を変更',class: "btn",style: "color:#007b43; background-color:#badcad;" %></td>
+             </tr>
+          </table>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
