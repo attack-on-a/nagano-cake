@@ -1,34 +1,36 @@
 <div class="container">
-  <div class="row" style="margin-top:20px;">
-    <h4 class="offset-md-1">会員一覧</h4>
-  </div>
-  <div class="row">
-    <div class="col-md-9 mx-auto">
-      <table class="table table-hover bg-white">
-        <thead class="table-active">
-          <tr>
-            <th><%= "会員ID" %></th>
-            <th><%= "氏名" %></th>
-            <th><%= "メールアドレス" %></th>
-            <th><%= "ステータス" %></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @customers.each do |customer| %>
+  <div class="card rounded col-9 mx-auto mt-4" style="background-color:#fcfced;" >
+    <div class="row">
+      <div class="col-12 p-0">
+        <h4 class="text-center p-2">会員一覧</h4>
+        <table class="table table-hover bg-white mb-0">
+          <thead class="table-active">
             <tr>
-              <td><%= customer.id %></td>
-              <td><%= link_to customer.last_name+customer.first_name, admin_customer_path(customer.id) %></td>
-              <td><%= customer.email %></td>
-              <% if customer.is_deleted == false %>
-                <td class="text-success">有効</td>
-              <% else %>
-                <td class="text-secondary">退会</td>
-              <% end %>
+              <th><%= "会員ID" %></th>
+              <th><%= "氏名" %></th>
+              <th><%= "メールアドレス" %></th>
+              <th><%= "ステータス" %></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <%= paginate @customers %>
+          </thead>
+          <tbody>
+            <% @customers.each do |customer| %>
+              <tr>
+                <td><%= customer.id %></td>
+                <td><%= link_to customer.last_name+customer.first_name, admin_customer_path(customer.id) %></td>
+                <td><%= customer.email %></td>
+                <% if customer.is_deleted == false %>
+                  <td class="text-success">有効</td>
+                <% else %>
+                  <td class="text-secondary">退会</td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
+  </div>
+  <div class="d-flex justify-content-center mt-5">
+    <%= paginate @customers %>
   </div>
 </div>
