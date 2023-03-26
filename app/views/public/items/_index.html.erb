@@ -1,8 +1,8 @@
-<div class="d-flex flex-wrap mt-3">
+<div class="d-flex flex-wrap mt-1 mx-auto">
   <% active_items.each do |item| %>
-      <div class="mx-2 my-3">
+      <div class="card my-2 pt-1 px-1" style="margin-left:2px; margin-right:2px;">
         <%= link_to item_path(item) do %>
-          <%= image_tag item.get_item_image, size:"150x140" %>
+          <%= image_tag item.get_item_image, size:"150x150" %>
         <% end %>
         <div class="d-flex flex-wrap justify-content-center pt-2" style="width:150px;"><strong><%= item.name %></strong></div>
         <div class="text-center"><strong>￥<%= (item.price).to_s(:delimited) %></strong></div>
