@@ -1,9 +1,9 @@
  <div class="container">
    <div class="row">
      <div class="col-md-12">
-       <h4 class="p-3 mb-2 text-white"> 注文履歴詳細</h4>
+       <h4 class="p-3 mb-2"> 注文履歴詳細</h4>
 
-     <table class="table bg-white">
+     <table class="table" style="background-color:#fcfced">
       <tbody>
         <tr>
           <th class="table-active">購入者</th>
@@ -46,7 +46,7 @@
 
    <div class="row mb-5">
     <div class="col-md-8">
-      <table class="table bg-white">
+      <table class="table" style="background-color:#fcfced">
         <thead class="table-active">
           <tr>
            <th>商品名</th>
@@ -57,7 +57,7 @@
           </tr>
         </thead>
 
-        <tbody class="bg-white">
+        <tbody>
          <% @pay_details.each do |order_detail| %>
           <tr>
             <td><%= order_detail.item.name %> </td>
@@ -78,7 +78,7 @@
     </div>
 
     <div class="col">
-      <table class="table bg-white">
+      <table class="table" style="background-color:#fcfced">
         <thead>
           <tr>
             <td class="table-active">商品合計</td>
