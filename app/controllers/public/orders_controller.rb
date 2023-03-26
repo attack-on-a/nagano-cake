@@ -59,7 +59,7 @@ class Public::OrdersController < ApplicationController
 
 
   def index
-    @orders = Order.where(customer_id: current_customer).order('id DESC')
+    @orders = Order.where(customer_id: current_customer).order('id DESC').page(params[:page])
 
   end
 
