@@ -14,9 +14,9 @@
           <%= f.label :"パスワード"%>
           <%= f.password_field :password, autocomplete: "current-password",class:"ml-5", :style =>"background-color:#fcfced"%>
         </div>
-      </div>
-      <div class="card-footer text-muted">
-        <%= f.submit "ログイン",class:"btn btn-primary"%>
+        <div class="row offset-4 p-2">
+          <%= f.submit "ログイン",class:"btn", style: "color:#0000ff; background-color:#6495ed;"%>
+        </div>
       </div>
       <% end %>
       <%= render "admin/shared/links" %>

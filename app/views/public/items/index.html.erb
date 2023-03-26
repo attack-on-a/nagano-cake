@@ -4,9 +4,11 @@
       <%= render 'public/items/left_menu', genres:@genres %>
     </div>
 
-    <div class='col-9'>
-      <div class="row">
-        <h4>商品一覧<span class="h5 pt-2"> (全<%= @items.count %>件)</span></h4>
+    <div class='col-9 card p-0' style="background-color:#fcfced;">
+      <div class="row card-header m-0">
+        <div class="text-center mx-auto">
+          <h4>商品一覧<span class="h5"> (全<%= @items.count %>件)</span></h4>
+        </div>
       </div>
       <div class="d-flex flex-wrap mt-4">
         <%= render 'public/items/index', active_items:@active_items %>
