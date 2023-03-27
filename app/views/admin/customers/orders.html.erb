@@ -1,19 +1,19 @@
-<div class="container my-4">
-  <div class="d-flex">
-    <h4>
-      <%= @customer.last_name + @customer.first_name %>さんの注文履歴
-    </h4>
-  </div>
-  <div class="col-10 mx-auto my-4">
-    <table class="table table-hover" style="background-color:#fcfced">
-      <thead class="table-active">
-        <tr>
-          <td class="text-center"><strong>購入日時</strong></td>
-          <td><strong>注文個数</strong></td>
-          <td><strong>注文ステータス</strong></td>
-        </tr>
-      </thead>
-        <tbody>
+<div class="container">
+  <div class="card rounded col-9 mx-auto mt-4" style="background-color:#fcfced;" >
+    <div class="row">
+      <div class="col-12 p-0">
+        <h4 class="text-center p-2">
+          <strong><%= @customer.last_name + @customer.first_name %></strong> さんの注文履歴
+        </h4>
+        <table class="table table-hover mb-0 text-center" style="background-color:#fcfced">
+          <thead class="table-active">
+            <tr>
+              <td><strong>購入日時</strong></td>
+              <td><strong>注文個数</strong></td>
+              <td><strong>注文ステータス</strong></td>
+            </tr>
+          </thead>
+          <tbody>
             <% @orders.each do |order| %>
             <tr>
               <td class="text-center">
@@ -23,10 +23,12 @@
               <td> <%= order.order_status_i18n %> </td>
             </tr>
             <% end %>
-        </tbody>
-    </table>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center mt-5">
     <%= paginate @orders %>
   </div>
 </div>
