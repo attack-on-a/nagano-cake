@@ -4,11 +4,11 @@
       <%= render 'public/items/left_menu', genres:@genres %>
     </div>
 
-    <div class="bg-white p-1">
+    <div class="bg-white p-1" style="height:50%">
       <%= image_tag @item.get_item_image, size:"297x297" %>
     </div>
 
-    <div class="col-5 card">
+    <div class="col-5 card" style="height:305px">
       <h4 class="my-4"><strong><%= @item.name %></strong></h4>
       <p class="my-1"><%= @item.explanatory %></p>
       <h5 class="mt-5"><strong>￥<%= (@item.with_tax_price).to_s(:delimited) %></strong> <span class="h6">(税込)</span></h5>
