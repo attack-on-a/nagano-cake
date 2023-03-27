@@ -1,2 +1,33 @@
-<h1>Public::Destinations#edit</h1>
-<p>Find me in app/views/public/destinations/edit.html.erb</p>
+<div class="container">
+  <div class="row mt-4">
+    <div class="card mx-auto", style="background-color:#fcfced">
+      <div class="card-header text-center">
+        <h4>配送先編集</h4>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <%= form_with model: @destination, url: destination_path(@destination), method: :patch do |f| %>
+          <table>
+            <tr>
+              <td class="text-center">郵便番号(ハイフンなし)</td>
+              <td><%= f.text_field :post_code,:style =>"background-color:#fcfced"%> </td>
+            </tr>
+            <tr>
+              <td class="text-center">住所</td>
+              <td> <%= f.text_field :address, size: "50*50",:style =>"background-color:#fcfced"%> </td>
+            </tr>
+             <tr>
+              <td class="text-center">宛名</td>
+              <td> <%= f.text_field :name,:style =>"background-color:#fcfced" %> </td>
+             </tr>
+             <tr>
+               <th></th>
+               <td class="pt-2"><%= f.submit '変更内容を変更',class: "btn",style: "color:#007b43; background-color:#badcad;" %></td>
+             </tr>
+          </table>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

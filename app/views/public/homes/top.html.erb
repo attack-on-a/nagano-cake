@@ -1,2 +1,41 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<div class="text-success text-center text-bold">
+  <%= flash[:notice] %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'public/items/left_menu', genres:@genres %>
+    </div>
+    <div class="col-md-9">
+
+      <div>
+        <img src="/assets/topcake.jpg" class="card-img" style="width: 700px; height: 450px;">
+        <div class="card-img-overlay d-flex">
+          <div>
+            <div class="card-body bg-light py-1 rounded">
+              <p>
+                ようこそ、ながのCAKEへ！<br>
+                このサイトはケーキ販売の<br>
+                ECサイトになります。<br>
+                会員でない方も商品の<br>
+                閲覧はできますが、<br>
+                購入には会員登録が<br>
+                必要になります。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:20px; margin-bottom:20px; background-color:#fcfced;">
+        <div class="card-header">
+          <h3 class="font-weight-bold text-center">新着商品</h3>
+        </div>
+        <%= render 'public/items/index', active_items:@active_items %>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-end">
+    <%= link_to "全ての商品を見る >", items_path, class:"btn pr-3 pl-3 ml-4", :style=>"background-color:#fcfced;" %>
+  </div>
+</div>

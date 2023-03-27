@@ -1,2 +1,49 @@
-<h1>Public::Customers#show</h1>
-<p>Find me in app/views/public/customers/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="card col-lg-7 p-0" style="background-color:#cfae9f">
+      <div class="card-header text-center mt-0" style="margin-top:20px; margin-bottom:30px;">
+        <h4>マイページ</h4>
+      </div>
+      <div class="d-flex" style="margin-bottom:20px;">
+        <h4 class="font-weight-bold">登録情報</h4>
+        <%= link_to "編集する", customers_information_edit_path, class: "btn ml-5 pr-4 pl-4", :style=>"color:#007b43; background-color:#badcad;" %>
+      </div>
+      <table class="table table-active table-boderless card">
+        <tbody style="background-color:#fcfced">
+          <tr>
+            <td class="table-active text-center" style="width:30%;">氏名</td>
+            <td style="width:100%;"><%= @customer.last_name+@customer.first_name %></td>
+          </tr>
+          <tr>
+            <td class="table-active text-center">カナ</td>
+            <td><%= @customer.kana_last_name+@customer.kana_first_name %></td>
+          </tr>
+          <tr>
+            <td class="table-active text-center">郵便番号</td>
+            <td><%= @customer.post_code %></td>
+          </tr>
+          <tr>
+            <td class="table-active text-center">住所</td>
+            <td><%= @customer.post_address %></td>
+          </tr>
+          <tr>
+            <td class="table-active text-center">電話番号</td>
+            <td><%= @customer.phone_number %></td>
+          </tr>
+          <tr>
+            <td class="table-active text-center">メールアドレス</td>
+            <td><%= @customer.email %></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="d-flex" style="margin-top:40px;">
+        <h4 class="font-weight-bold mr-4">配送先</h4>
+        <%= link_to "一覧を見る", destinations_path, class: "btn ml-5 pr-4 pl-4", :style=>"color:#ee7800; background-color:#f2d58a;" %>
+      </div>
+      <div class="d-flex" style="margin:20px 0;">
+        <h4 class="font-weight-bold">注文履歴</h4>
+        <%= link_to "一覧を見る", orders_path, class: "btn ml-5 pr-4 pl-4", :style=>"color:#ee7800; background-color:#f2d58a;" %>
+      </div>
+    </div>
+  </div>
+</div>

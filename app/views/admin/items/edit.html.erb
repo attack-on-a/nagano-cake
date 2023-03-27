@@ -1,2 +1,20 @@
-<h1>Admin::Items#edit</h1>
-<p>Find me in app/views/admin/items/edit.html.erb</p>
+<div class="container">
+  <div class="text-center my-3">
+    <% if @item.errors.any? %>
+      <h3 class="text-danger">
+        <%= @message %>
+      </h3>
+    <% end %>
+  </div>
+  <div class="card rounded col-8 mx-auto mt-4 p-0" style="background-color:#fcfced" >
+    <div class="col-12 p-0 m-0">
+      <div class="card-header mx-0 py-3">
+        <h4 class="text-center mx-0">商品新規登録</h4>
+      </div>
+      <div class="mt-3">
+        <%= render 'admin/items/form', item: @item, method:admin_item_path(@item) %>
+      </div>
+    </div>
+  </div>
+</div>
+

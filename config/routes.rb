@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  get 'searchs/search'
   namespace :admin do
     # order
-    resources :orders, only: [:show, :update]
+    resources :orders, only: [:show, :update, :index]
 
     # customer
     resources :customers, only: [:index, :show, :edit, :update]
+    get 'customers/orders/:id' => 'customers#orders'
 
     # genre
     resources :genres, only: [:index, :create, :edit, :update]
@@ -13,7 +15,7 @@ Rails.application.routes.draw do
     resources :items, except: [:destroy]
 
     # order_detail
-    resources :order_details, only: [:update]
+    resources :order_details, only: [:update, :index]
 
     # home
     root to: 'homes#top'
@@ -24,19 +26,20 @@ Rails.application.routes.draw do
     resources :destinations, except: [:new, :show]
 
     # order
+    get 'orders/complete' => 'orders#complete'
     resources :orders, only: [:index, :new, :create, :show]
     post 'orders/confirm'
-    get 'orders/complete'
+
 
     # cart_item
     resources :cart_items, only: [:index, :update, :create, :destroy]
-    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
+    delete 'cart_items' => 'cart_items#destroy_all'
 
     # customer
     get 'customers/mypage' => 'customers#show'
     get 'customers/information/edit' => 'customers#edit'
-    get 'customers/soft_delete'
     patch 'customers/information' => 'customers#update'
+    get 'customers/soft_delete' => 'customers#soft_delete'
     patch 'customers/drop' => 'customers#drop'
 
     # item

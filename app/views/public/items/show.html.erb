@@ -1,2 +1,38 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div class='container'>
+  <div class='row'>
+    <div class='col-3'>
+      <%= render 'public/items/left_menu', genres:@genres %>
+    </div>
+
+    <div class="bg-white p-1" style="height:50%">
+      <%= image_tag @item.get_item_image, size:"297x297" %>
+    </div>
+
+    <div class="col-5 card" style="height:305px">
+      <h4 class="my-4"><strong><%= @item.name %></strong></h4>
+      <p class="my-1"><%= @item.explanatory %></p>
+      <h5 class="mt-5"><strong>￥<%= (@item.with_tax_price).to_s(:delimited) %></strong> <span class="h6">(税込)</span></h5>
+
+
+      <div class="container mt-2">
+        <div class="row">
+          <% if customer_signed_in? %>
+            <%= form_with model:CartItem, url:cart_items_path, method: :post, local:true do |f| %>
+              <%= f.hidden_field:customer_id, :value => current_customer.id %>
+              <%= f.hidden_field:item_id, :value => @item.id %>
+              <div class="form-group d-flex">
+                <div>
+                  <%= f.select:amount, 1..100, { prompt: '個数選択' }, class: "form-control" %>
+                </div>
+                <div class="ml-3">
+                  <%= f.submit "カートに入れる", class: "btn btn-success" %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
