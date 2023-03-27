@@ -9,15 +9,15 @@
           <%= form_with model: @destination, url: destination_path(@destination), method: :patch do |f| %>
           <table>
             <tr>
-              <th class="text-center">郵便番号(ハイフンなし)</th>
+              <td class="text-center">郵便番号(ハイフンなし)</td>
               <td><%= f.text_field :post_code,:style =>"background-color:#fcfced"%> </td>
             </tr>
             <tr>
-              <th class="text-center">住所</th>
+              <td class="text-center">住所</td>
               <td> <%= f.text_field :address, size: "50*50",:style =>"background-color:#fcfced"%> </td>
             </tr>
              <tr>
-              <th class="text-center">宛名</th>
+              <td class="text-center">宛名</td>
               <td> <%= f.text_field :name,:style =>"background-color:#fcfced" %> </td>
              </tr>
              <tr>

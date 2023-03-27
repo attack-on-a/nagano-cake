@@ -28,7 +28,9 @@
         </div>
       </div>
       <div class="card" style="margin-top:20px; margin-bottom:20px; background-color:#fcfced;">
-        <h3 class="font-weight-bold text-center">新着商品</h3>
+        <div class="card-header">
+          <h3 class="font-weight-bold text-center">新着商品</h3>
+        </div>
         <%= render 'public/items/index', active_items:@active_items %>
       </div>
     </div>

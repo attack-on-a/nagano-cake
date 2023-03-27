@@ -1,11 +1,10 @@
-<div class="offset-2">
-
-    <div class="row mt-4">
-       <h4>配送先登録/一覧</h4>
+<div class="container card" style="background-color:#cfae9f">
+  <div class="row card-header">
+    <div class="mx-auto">
+      <h4>配送先登録/一覧</h4>
     </div>
-
+  </div>
   <div class="row">
-
     <%= form_with model: @destination, url: destinations_path, method: :post do |f| %>
     <table class="table table-borderless">
       <tr>
@@ -24,7 +23,7 @@
      </table>
      <% end %>
 
-    <table class="table table-bordered table-hover col-11",style="background-color:#fcfced">
+    <table class="table table-bordered table-hover col-11 mx-auto" style="background-color:#fcfced">
      <thead class="table-active">
       <tr>
         <th>郵便番号</th>
