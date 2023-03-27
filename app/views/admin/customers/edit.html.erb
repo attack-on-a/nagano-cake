@@ -42,6 +42,15 @@
                 <td class="form-group"><%= f.text_field :email, :style=>"background-color:#fcfced;" %></td>
               </tr>
               <tr>
+                <td>会員ステータス</td>
+                <td class="form-group">
+                  <%= f.radio_button :is_deleted, "false" %>
+                  <%= f.label :is_deleted_false, "有効" %>
+                  <%= f.radio_button :is_deleted, "true", class:"ml-4" %>
+                  <%= f.label :is_deleted_false, "退会" %>
+                </td>
+              </tr>
+                <tr>
                 <td></td>
                 <td class="form-group">
                   <%= f.submit "変更を保存", class: "btn mr-5", :style=>"color:#007b43; background-color:#badcad;" %>
