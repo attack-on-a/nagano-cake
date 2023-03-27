@@ -1,30 +1,30 @@
-<div class="container card">
-  <div class="row d-flex justify-content-between">
+<div class="container card" style="background-color:#cfae9f">
+  <div class="row d-flex card-header justify-content-between">
     <h4> ショッピングカート </h4>
     <%= link_to "カートを空にする", cart_items_path, "data-confirm" => "全部消しますか?", method: :delete, class: "btn btn-md", :style=>"color:#c70067; background-color:#ffb6c1;" %>
   </div>
   <div class="row">
-    <table class='table table-hover table-inverse my-3' style="background-color:#fcfced">
-      <thead class="table-active border border-dark font-weight-nomal">
-        <tr class="border-dark text-center">
-          <th class="border border-dark">商品名</th>
-          <th class="border border-dark">単価(税込)</th>
-          <th class="border border-dark">数量</th>
-          <th class="border border-dark">小計</th>
-          <th class="border border-dark" colspan="3"></th>
+   <table class='table table-hover table-bordered my-3' style="background-color:#fcfced">
+      <thead class="table-active font-weight-nomal">
+        <tr class="text-center">
+          <th>商品名</th>
+          <th>単価(税込)</th>
+          <th>数量</th>
+          <th>小計</th>
+          <th colspan="3"></th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="text-center">
         <% @cart_items.each do |cart_item| %>
           <tr>
-            <td class="align-middle border border-dark" style="width:40%">
+            <td class="text-left align-middle" style="width:40%">
               <%= image_tag cart_item.item.get_item_image, size:'90x90' %>
               <%= cart_item.item.name %>
             </td>
-            <td class="align-middle border border-dark text-center" style="width:15%">
+            <td class="align-middle" style="width:15%">
               ¥<%= (cart_item.item.with_tax_price).to_s(:delimited) %>
             </td>
-            <td class="border border-dark" style="width:15%">
+            <td style="width:15%">
               <%= form_with model:CartItem, url:cart_item_path(cart_item), method: :patch, local:true do |f| %>
                 <div class="form-group d-flex mt-3">
                   <div>
@@ -36,10 +36,10 @@
                 </div>
               <% end %>
             </td>
-            <td class="align-middle border border-dark text-center">
+            <td class="align-middle text-center">
               ¥<%= (cart_item.item.with_tax_price*cart_item.amount).to_s(:delimited) %>
             </td>
-            <td class="align-middle border border-dark text-center" style="width:15%">
+            <td class="align-middle text-center" style="width:15%">
               <%= link_to "取り消す", cart_item_path(cart_item), method: :delete, class: "btn btn-md h6", :style=>"color:#c70067; background-color:#ffb6c1;" %>
             </td>
           </tr>
@@ -47,15 +47,15 @@
       </tbody>
     </table>
   </div>
-  <div class="row d-flex justify-content-between my-4">
+  <div class="row d-flex justify-content-between">
     <div>
       <%= link_to "買い物を続ける", root_path, class:"btn ml-3", :style=>"color:#ee7800; background-color:#f2d58a;" %>
     </div>
-    <div>
-      <table class="table">
+    <div class="mr-3">
+      <table class="table" style="background-color:#fcfced">
         <tr>
-          <th class="table-active border border-dark text-center" style="width:140px">合計金額</th>
-          <td class="border border-dark" style="width:140px background-color:#fcfced">
+          <th class="table-active text-center" style="width:140px">合計金額</th>
+          <td style="width:140px background-color:#fcfced">
             <% @cart_items.each do |cart_item| %>
               <% @total += cart_item.subtotal %>
             <% end %>
@@ -65,11 +65,11 @@
       </table>
     </div>
   </div>
-  <div class="d-flex justify-content-center mt-3">
+  <div class="d-flex justify-content-center mt-2">
     <%= paginate @cart_items %>
   </div>
   <% if current_customer.cart_items.present? %>
-    <div class="d-flex justify-content-center my-5">
+    <div class="d-flex justify-content-center mb-2">
       <%= link_to "情報入力に進む", new_order_path, class: "btn btn-lg", :style=>"color:#007b43; background-color:#badcad;" %>
     </div>
   <% end %>

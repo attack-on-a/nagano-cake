@@ -4,16 +4,13 @@
       <%= render 'public/items/left_menu', genres:@genres %>
     </div>
 
-    <div class='col-9 card p-0' style="background-color:#fcfced;">
+    <div class='col-8 card p-0' style="background-color:#fcfced;">
       <div class="row card-header m-0">
         <div class="text-center mx-auto">
           <h4>商品一覧<span class="h5"> (全<%= @items.count %>件)</span></h4>
         </div>
       </div>
-      <div>
-        <%= render 'public/items/index', active_items:@active_items %>
-      </div>
-
+      <%= render 'public/items/index', active_items:@active_items %>
       <div class="d-flex justify-content-center mt-5">
         <%= paginate @active_items %>
       </div>
